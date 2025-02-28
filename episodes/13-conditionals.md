@@ -1,29 +1,32 @@
 ---
-title: Conditionals
+title: Condicionales
 teaching: 10
 exercises: 15
 ---
 
+
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Correctly write programs that use if and else statements and simple Boolean expressions (without logical operators).
-- Trace the execution of unnested conditionals and conditionals inside loops.
+- Escribir correctamente programas que utilicen sentencias if y else y expresiones
+  booleanas sencillas (sin operadores lógicos).
+- Rastrea la ejecución de condicionales no anidadas y condicionales dentro de bucles.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can programs do different things for different data?
+- ¿Cómo pueden los programas hacer cosas diferentes para datos diferentes?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use `if` statements to control whether or not a block of code is executed.
+## Usar sentencias `if` para controlar si un bloque de código se ejecuta o no.
 
-- An `if` statement (more properly called a *conditional* statement)
-  controls whether some block of code is executed or not.
-- Structure is similar to a `for` statement:
-  - First line opens with `if` and ends with a colon
-  - Body containing one or more statements is indented (usually by 4 spaces)
+- Una sentencia `if` (más propiamente llamada sentencia *condicional*) controla si un
+  bloque de código se ejecuta o no.
+- La estructura es similar a una sentencia `for`:
+  - La primera línea se abre con `if` y termina con dos puntos
+  - El cuerpo que contiene una o más sentencias tiene sangría (normalmente de 4
+    espacios)
 
 ```python
 mass = 3.54
@@ -39,10 +42,10 @@ if mass > 3.0:
 3.54 is large
 ```
 
-## Conditionals are often used inside loops.
+## Los condicionales se usan a menudo dentro de bucles.
 
-- Not much point using a conditional when we know the value (as above).
-- But useful when we have a collection to process.
+- No tiene mucho sentido usar una condicional cuando conocemos el valor (como arriba).
+- Pero útil cuando tenemos una colección que procesar.
 
 ```python
 masses = [3.54, 2.07, 9.22, 1.86, 1.71]
@@ -56,10 +59,10 @@ for m in masses:
 9.22 is large
 ```
 
-## Use `else` to execute a block of code when an `if` condition is *not* true.
+## Use `else` para ejecutar un bloque de código cuando una condición `if` es *no* verdadera.
 
-- `else` can be used following an `if`.
-- Allows us to specify an alternative to execute when the `if` *branch* isn't taken.
+- `else` puede utilizarse después de `if`.
+- Nos permite especificar una alternativa a ejecutar cuando la rama `if` no está tomada.
 
 ```python
 masses = [3.54, 2.07, 9.22, 1.86, 1.71]
@@ -78,12 +81,12 @@ for m in masses:
 1.71 is small
 ```
 
-## Use `elif` to specify additional tests.
+## Utilice `elif` para especificar pruebas adicionales.
 
-- May want to provide several alternative choices, each with its own test.
-- Use `elif` (short for "else if") and a condition to specify these.
-- Always associated with an `if`.
-- Must come before the `else` (which is the "catch all").
+- Puede proporcionar varias opciones alternativas, cada una con su propia prueba.
+- Utilice `elif` (abreviatura de "else if") y una condición para especificarlas.
+- Siempre asociado a un `if`.
+- Debe ir antes de `else` (que es el "catch all").
 
 ```python
 masses = [3.54, 2.07, 9.22, 1.86, 1.71]
@@ -104,10 +107,10 @@ for m in masses:
 1.71 is small
 ```
 
-## Conditions are tested once, in order.
+## Las condiciones se prueban una vez, en orden.
 
-- Python steps through the branches of the conditional in order, testing each in turn.
-- So ordering matters.
+- Python recorre las ramas de la condicional en orden, probando cada una a su vez.
+- El orden es importante.
 
 ```python
 grade = 85
@@ -123,7 +126,7 @@ elif grade >= 70:
 grade is B
 ```
 
-- Does *not* automatically go back and re-evaluate if values change.
+- *No* vuelve atrás automáticamente y reevalúa si los valores cambian.
 
 ```python
 velocity = 10.0
@@ -138,7 +141,8 @@ else:
 adjusting velocity
 ```
 
-- Often use conditionals in a loop to "evolve" the values of variables.
+- Utiliza a menudo condicionales en un bucle para "evolucionar" los valores de las
+  variables.
 
 ```python
 velocity = 10.0
@@ -167,7 +171,7 @@ moving too slow
 final velocity: 30.0
 ```
 
-## Create a table showing variables' values to trace a program's execution.
+## Crear una tabla con los valores de las variables para seguir la ejecución de un programa.
 
 <table>
   <tr>   <td><strong>i</strong></td>   <td>0</td>   <td>.</td>   <td>1</td>   <td>.</td>   <td>2</td>   <td>.</td>   <td>3</td>   <td>.</td>   <td>4</td>   <td>.</td>
@@ -176,17 +180,17 @@ final velocity: 30.0
   </tr>
 </table>
 
-- The program must have a `print` statement *outside* the body of the loop
-  to show the final value of `velocity`,
-  since its value is updated by the last iteration of the loop.
+- El programa debe tener una sentencia `print` *fuera* del cuerpo del bucle para mostrar
+  el valor final de `velocity`, ya que su valor se actualiza en la última iteración del
+  bucle.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::::::::::::::::::::::::::::::::::::::::: callout
 
-## Compound Relations Using `and`, `or`, and Parentheses
+## Relaciones compuestas usando `and`, `or` y paréntesis
 
-Often, you want some combination of things to be true.  You can combine
-relations within a conditional using `and` and `or`.  Continuing the example
-above, suppose you have
+A menudo, se desea que alguna combinación de cosas sea verdadera. Puede combinar
+relaciones dentro de una condicional utilizando `and` y `or`. Siguiendo con el ejemplo
+anterior, supongamos que tenemos
 
 ```python
 mass     = [ 3.54,  2.07,  9.22,  1.86,  1.71]
@@ -204,31 +208,32 @@ for i in range(5):
         print("Whoa!  Something is up with the data.  Check it")
 ```
 
-Just like with arithmetic, you can and should use parentheses whenever there
-is possible ambiguity.  A good general rule is to *always* use parentheses
-when mixing `and` and `or` in the same condition.  That is, instead of:
+Al igual que con la aritmética, puede y debe utilizar paréntesis siempre que exista una
+posible ambigüedad. Una buena regla general es usar *siempre* paréntesis cuando se
+mezclan `and` y `or` en la misma condición. Es decir, en lugar de
 
 ```python
 if mass[i] <= 2 or mass[i] >= 5 and velocity[i] > 20:
 ```
 
-write one of these:
+escribe uno de estos:
 
 ```python
 if (mass[i] <= 2 or mass[i] >= 5) and velocity[i] > 20:
 if mass[i] <= 2 or (mass[i] >= 5 and velocity[i] > 20):
 ```
 
-so it is perfectly clear to a reader (and to Python) what you really mean.
+para que quede perfectamente claro para un lector (y para Python) lo que realmente
+quieres decir.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Tracing Execution
+## Rastreando Ejecución
 
-What does this program print?
+¿Qué imprime este programa?
 
 ```python
 pressure = 71.9
@@ -239,9 +244,9 @@ elif pressure <= 50.0:
 print(pressure)
 ```
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
 ```output
 25.0
@@ -251,13 +256,13 @@ print(pressure)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Trimming Values
+## Recorte de Valores
 
-Fill in the blanks so that this program creates a new list
-containing zeroes where the original list's values were negative
-and ones where the original list's values were positive.
+Rellena los espacios en blanco para que este programa cree una nueva lista que contenga
+ceros donde los valores de la lista original eran negativos y unos donde los valores de
+la lista original eran positivos.
 
 ```python
 original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
@@ -274,9 +279,9 @@ print(result)
 [0, 1, 1, 1, 0, 1]
 ```
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
 ```python
 original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
@@ -293,11 +298,11 @@ print(result)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Processing Small Files
+## Procesamiento de ficheros pequeños
 
-Modify this program so that it only processes files with fewer than 50 records.
+Modifica este programa para que sólo procese ficheros con menos de 50 registros.
 
 ```python
 import glob
@@ -308,9 +313,9 @@ for filename in glob.glob('data/*.csv'):
         print(filename, len(contents))
 ```
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
 ```python
 import glob
@@ -325,12 +330,12 @@ for filename in glob.glob('data/*.csv'):
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Initializing
+## Inicializando
 
-Modify this program so that it finds the largest and smallest values in the list
-no matter what the range of values originally is.
+Modifica este programa para que encuentre los valores mayor y menor de la lista sin
+importar el rango de valores original.
 
 ```python
 values = [...some test data...]
@@ -344,12 +349,12 @@ for v in values:
 print(smallest, largest)
 ```
 
-What are the advantages and disadvantages of using this method
-to find the range of the data?
+¿Cuáles son las ventajas y desventajas de utilizar este método para hallar el rango de
+los datos?
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
 ```python
 values = [-2,1,65,78,-54,-24,100]
@@ -363,13 +368,15 @@ for v in values:
 print(smallest, largest)
 ```
 
-If you wrote `== None` instead of `is None`, that works too, but Python programmers always
-write `is None` because of the special way `None` works in the language.
+Si escribiste `== None` en lugar de `is None`, también funciona, pero los programadores
+de Python siempre escriben `is None` debido a la forma especial en que `None` funciona
+en el lenguaje.
 
-It can be argued that an advantage of using this method would be to make the code more readable.
-However, a disadvantage is that this code is not efficient because within each iteration of the
-`for` loop statement, there are two more loops that run over two numbers each (the `min` and
-`max` functions). It would be more efficient to iterate over each number just once:
+Se puede argumentar que una ventaja de utilizar este método sería hacer el código más
+legible. Sin embargo, una desventaja es que este código no es eficiente porque dentro de
+cada iteración de la declaración del bucle `for`, hay dos bucles más que se ejecutan
+sobre dos números cada uno (las funciones `min` y `max`). Sería más eficiente iterar
+sobre cada número una sola vez:
 
 ```python
 values = [-2,1,65,78,-54,-24,100]
@@ -382,9 +389,10 @@ for v in values:
 print(smallest, largest)
 ```
 
-Now we have one loop, but four comparison tests. There are two ways we could improve it further:
-either use fewer comparisons in each iteration, or use two loops that each contain only one
-comparison test. The simplest solution is often the best:
+Ahora tenemos un bucle, pero cuatro pruebas de comparación. Hay dos formas de mejorarlo:
+o bien utilizar menos comparaciones en cada iteración, o bien utilizar dos bucles que
+contengan cada uno sólo una prueba de comparación. La solución más sencilla suele ser la
+mejor:
 
 ```python
 values = [-2,1,65,78,-54,-24,100]
@@ -399,13 +407,16 @@ print(smallest, largest)
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Use `if` statements to control whether or not a block of code is executed.
-- Conditionals are often used inside loops.
-- Use `else` to execute a block of code when an `if` condition is *not* true.
-- Use `elif` to specify additional tests.
-- Conditions are tested once, in order.
-- Create a table showing variables' values to trace a program's execution.
+- Utilice sentencias `if` para controlar si se ejecuta o no un bloque de código.
+- Los condicionales se usan a menudo dentro de bucles.
+- Utilice `else` para ejecutar un bloque de código cuando una condición `if` es *no*
+  verdadera.
+- Utilice `elif` para especificar pruebas adicionales.
+- Las condiciones se prueban una vez, en orden.
+- Crea una tabla con los valores de las variables para seguir la ejecución de un
+  programa.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 

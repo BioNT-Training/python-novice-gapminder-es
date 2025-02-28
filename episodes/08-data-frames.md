@@ -4,45 +4,49 @@ teaching: 15
 exercises: 15
 ---
 
+
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Select individual values from a Pandas dataframe.
-- Select entire rows or entire columns from a dataframe.
-- Select a subset of both rows and columns from a dataframe in a single operation.
-- Select a subset of a dataframe by a single Boolean criterion.
+- Selecciona valores individuales de un marco de datos Pandas.
+- Selecciona filas enteras o columnas enteras de un marco de datos.
+- Selecciona un subconjunto de filas y columnas de un marco de datos en una sola
+  operación.
+- Seleccionar un subconjunto de un marco de datos mediante un único criterio booleano.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I do statistical analysis of tabular data?
+- ¿Cómo puedo hacer un análisis estadístico de datos tabulares?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Note about Pandas DataFrames/Series
+## Nota sobre Pandas DataFrames/Series
 
-A [DataFrame][pandas-dataframe] is a collection of [Series][pandas-series];
-The DataFrame is the way Pandas represents a table, and Series is the data-structure
-Pandas use to represent a column.
+Un [DataFrame][pandas-dataframe] es una colección de [Series][pandas-series]; El
+DataFrame es la forma en que Pandas representa una tabla, y Series es la estructura de
+datos que Pandas utiliza para representar una columna.
 
-Pandas is built on top of the [Numpy][numpy] library, which in practice means that
-most of the methods defined for Numpy Arrays apply to Pandas Series/DataFrames.
+Pandas está construido sobre la librería [Numpy][numpy], lo que en la práctica significa
+que la mayoría de los métodos definidos para Numpy Arrays se aplican a Pandas
+Series/DataFrames.
 
-What makes Pandas so attractive is the powerful interface to access individual records
-of the table, proper handling of missing values, and relational-databases operations
-between DataFrames.
+Lo que hace que Pandas sea tan atractivo es la potente interfaz para acceder a registros
+individuales de la tabla, el manejo adecuado de los valores que faltan y las operaciones
+de base de datos relacional entre DataFrames.
 
-## Selecting values
+## Seleccionar valores
 
-To access a value at the position `[i,j]` of a DataFrame, we have two options, depending on
-what is the meaning of `i` in use.
-Remember that a DataFrame provides an *index* as a way to identify the rows of the table;
-a row, then, has a *position* inside the table as well as a *label*, which
-uniquely identifies its *entry* in the DataFrame.
+Para acceder a un valor en la posición `[i,j]` de un DataFrame, tenemos dos opciones,
+dependiendo de cuál sea el significado de `i` en uso. Recuerde que un DataFrame
+proporciona un *índice* como forma de identificar las filas de la tabla; una fila,
+entonces, tiene una *posición* dentro de la tabla así como una *etiqueta*, que
+identifica unívocamente su *entrada* en el DataFrame.
 
-## Use `DataFrame.iloc[..., ...]` to select values by their (entry) position
+## Usar `DataFrame.iloc[..., ...]` para seleccionar valores por su posición (de entrada)
 
-- Can specify location by numerical index analogously to 2D version of character selection in strings.
+- Puede especificar la ubicación por índice numérico de forma análoga a la versión 2D de
+  la selección de caracteres en cadenas.
 
 ```python
 import pandas as pd
@@ -54,9 +58,9 @@ print(data.iloc[0, 0])
 1601.056136
 ```
 
-## Use `DataFrame.loc[..., ...]` to select values by their (entry) label.
+## Usa `DataFrame.loc[..., ...]` para seleccionar valores por su etiqueta (de entrada).
 
-- Can specify location by row and/or column name.
+- Puede especificar la ubicación por nombre de fila y/o columna.
 
 ```python
 print(data.loc["Albania", "gdpPercap_1952"])
@@ -66,9 +70,9 @@ print(data.loc["Albania", "gdpPercap_1952"])
 1601.056136
 ```
 
-## Use `:` on its own to mean all columns or all rows.
+## Use `:` solo para significar todas las columnas o todas las filas.
 
-- Just like Python's usual slicing notation.
+- Igual que la notación de corte habitual de Python.
 
 ```python
 print(data.loc["Albania", :])
@@ -90,7 +94,8 @@ gdpPercap_2007    5937.029526
 Name: Albania, dtype: float64
 ```
 
-- Would get the same result printing `data.loc["Albania"]` (without a second index).
+- Obtendría el mismo resultado imprimiendo `data.loc["Albania"]` (sin un segundo
+  índice).
 
 ```python
 print(data.loc[:, "gdpPercap_1952"])
@@ -108,10 +113,11 @@ United Kingdom             9979.508487
 Name: gdpPercap_1952, dtype: float64
 ```
 
-- Would get the same result printing `data["gdpPercap_1952"]`
-- Also get the same result printing `data.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
+- Obtendría el mismo resultado imprimiendo `data["gdpPercap_1952"]`
+- También se obtiene el mismo resultado imprimiendo `data.gdpPercap_1952` (no
+  recomendado, porque se confunde fácilmente con la notación `.` para métodos)
 
-## Select multiple columns or rows using `DataFrame.loc` and a named slice.
+## Selecciona múltiples columnas o filas usando `DataFrame.loc` y un slice con nombre.
 
 ```python
 print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
@@ -127,16 +133,16 @@ Norway         13450.401510    16361.876470    18965.055510
 Poland          5338.752143     6557.152776     8006.506993
 ```
 
-In the above code, we discover that **slicing using `loc` is inclusive at both
-ends**, which differs from **slicing using `iloc`**, where slicing indicates
-everything up to but not including the final index.
+En el código anterior, descubrimos que **el troceado utilizando `loc` es inclusivo en
+ambos extremos**, lo que difiere del **troceado utilizando `iloc`**, donde el troceado
+indica todo hasta el índice final, pero sin incluirlo.
 
-## Result of slicing can be used in further operations.
+## El resultado del corte puede utilizarse en operaciones posteriores.
 
-- Usually don't just print a slice.
-- All the statistical operators that work on entire dataframes
-  work the same way on slices.
-- E.g., calculate max of a slice.
+- Normalmente no se imprime sólo un trozo.
+- Todos los operadores estadísticos que funcionan en marcos de datos enteros funcionan
+  de la misma manera en cortes.
+- Por ejemplo, calcular el máximo de una porción.
 
 ```python
 print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
@@ -160,10 +166,10 @@ gdpPercap_1972    7778.414017
 dtype: float64
 ```
 
-## Use comparisons to select data based on value.
+## Utiliza comparaciones para seleccionar datos en función de su valor.
 
-- Comparison is applied element by element.
-- Returns a similarly-shaped dataframe of `True` and `False`.
+- La comparación se aplica elemento por elemento.
+- Devuelve un marco de datos de forma similar de `True` y `False`.
 
 ```python
 # Use a subset of data to keep output readable.
@@ -194,9 +200,9 @@ Norway                True           True           True
 Poland               False          False          False
 ```
 
-## Select values or NaN using a Boolean mask.
+## Seleccionar valores o NaN usando una máscara booleana.
 
-- A frame full of Booleans is sometimes called a *mask* because of how it can be used.
+- Un marco lleno de booleanos a veces se llama *máscara* por cómo se puede usar.
 
 ```python
 mask = subset > 10000
@@ -213,8 +219,8 @@ Norway          13450.40151     16361.87647     18965.05551
 Poland                  NaN             NaN             NaN
 ```
 
-- Get the value where the mask is true, and NaN (Not a Number) where it is false.
-- Useful because NaNs are ignored by operations like max, min, average, etc.
+- Obtiene el valor donde la máscara es verdadera, y NaN (Not a Number) donde es falsa.
+- Útil porque los NaNs son ignorados por operaciones como max, min, promedio, etc.
 
 ```python
 print(subset[subset > 10000].describe())
@@ -232,28 +238,33 @@ min      12790.849560    10022.401310    12269.273780
 max      13450.401510    16361.876470    18965.055510
 ```
 
-## Group By: split-apply-combine
+## Agrupar por: split-apply-combine
 
 ::::::::::::::::::::::::::::::::::::: instructor
-Learners often struggle here, many may not work with financial data and concepts so they
-find the example concepts difficult to get their head around. The biggest problem
-though is the line generating the wealth_score, this step needs to be talked through
-throughly:
-* It uses implicit conversion between boolean and float values which 
-has not been covered in the course so far. 
-* The axis=1 argument needs to be explained clearly.
+
+Los alumnos suelen tener dificultades en este punto, ya que muchos no trabajan con datos
+y conceptos financieros, por lo que les resulta difícil entender los conceptos del
+ejemplo. Sin embargo, el mayor problema es la línea que genera la puntuación de la
+riqueza:
+* Utiliza la conversión implícita entre valores booleanos y flotantes que no se ha
+  tratado en el curso hasta ahora.
+* Es necesario explicar claramente el argumento axis=1.
+
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
-Pandas vectorizing methods and grouping operations are features that provide users
-much flexibility to analyse their data.
+Los métodos de vectorización y las operaciones de agrupación de Pandas son
+características que proporcionan a los usuarios mucha flexibilidad para analizar sus
+datos.
 
-For instance, let's say we want to have a clearer view on how the European countries
-split themselves according to their GDP.
+Por ejemplo, supongamos que queremos tener una visión más clara de cómo se dividen los
+países europeos según su PIB.
 
-1. We may have a glance by splitting the countries in two groups during the years surveyed,
-  those who presented a GDP *higher* than the European average and those with a *lower* GDP.
-2. We then estimate a *wealthy score* based on the historical (from 1962 to 2007) values,
-  where we account how many times a country has participated in the groups of *lower* or *higher* GDP
+1. Podemos echar un vistazo dividiendo los países en dos grupos durante los años
+   estudiados, los que presentaron un PIB *superior* a la media europea y los que
+   tuvieron un PIB *inferior*.
+2. A continuación, estimamos una *puntuación de riqueza* basada en los valores
+   históricos (de 1962 a 2007), en la que tenemos en cuenta cuántas veces ha participado
+   un país en los grupos de PIB *más bajo* o *más alto
 
 ```python
 mask_higher = data > data.mean()
@@ -296,8 +307,8 @@ United Kingdom            1.000000
 dtype: float64
 ```
 
-Finally, for each group in the `wealth_score` table, we sum their (financial) contribution
-across the years surveyed using chained methods:
+Por último, para cada grupo de la tabla `wealth_score`, sumamos su contribución
+(financiera) a lo largo de los años encuestados utilizando métodos encadenados:
 
 ```python
 print(data.groupby(wealth_score).sum())
@@ -323,12 +334,12 @@ print(data.groupby(wealth_score).sum())
 1.000000   315238.235970   346930.926170   385109.939210   427850.333420
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Selection of Individual Values
+## Selección de valores individuales
 
-Assume Pandas has been imported into your notebook
-and the Gapminder GDP data for Europe has been loaded:
+Suponga que ha importado Pandas a su cuaderno y que ha cargado los datos del PIB de
+Gapminder para Europa:
 
 ```python
 import pandas as pd
@@ -336,19 +347,20 @@ import pandas as pd
 data_europe = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
 ```
 
-Write an expression to find the Per Capita GDP of Serbia in 2007.
+Escribe una expresión para hallar el PIB per cápita de Serbia en 2007.
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-The selection can be done by using the labels for both the row ("Serbia") and the column ("gdpPercap\_2007"):
+La selección puede hacerse utilizando las etiquetas tanto de la fila ("Serbia") como de
+la columna ("gdpPercap\_2007"):
 
 ```python
 print(data_europe.loc['Serbia', 'gdpPercap_2007'])
 ```
 
-The output is
+La salida es
 
 ```output
 9786.534714
@@ -358,24 +370,24 @@ The output is
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Extent of Slicing
+## Extensión del corte
 
-1. Do the two statements below produce the same output?
-2. Based on this,
-  what rule governs what is included (or not) in numerical slices and named slices in Pandas?
+1. ¿Las dos sentencias siguientes producen la misma salida?
+2. En base a esto, ¿qué regla gobierna lo que se incluye (o no) en los cortes numéricos
+   y los cortes con nombre en Pandas?
 
 ```python
 print(data_europe.iloc[0:2, 0:2])
 print(data_europe.loc['Albania':'Belgium', 'gdpPercap_1952':'gdpPercap_1962'])
 ```
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-No, they do not produce the same output! The output of the first statement is:
+¡No, no producen la misma salida! La salida de la primera sentencia es
 
 ```output
         gdpPercap_1952  gdpPercap_1957
@@ -384,7 +396,7 @@ Albania     1601.056136     1942.284244
 Austria     6137.076492     8842.598030
 ```
 
-The second statement gives:
+La segunda sentencia da:
 
 ```output
         gdpPercap_1952  gdpPercap_1957  gdpPercap_1962
@@ -394,10 +406,11 @@ Austria     6137.076492     8842.598030    10750.721110
 Belgium     8343.105127     9714.960623    10991.206760
 ```
 
-Clearly, the second statement produces an additional column and an additional row compared to the first statement.  
-What conclusion can we draw? We see that a numerical slice, 0:2, *omits* the final index (i.e. index 2)
-in the range provided,
-while a named slice, 'gdpPercap\_1952':'gdpPercap\_1962', *includes* the final element.
+Claramente, la segunda sentencia produce una columna y una fila adicionales en
+comparación con la primera sentencia.  
+¿Qué conclusión podemos sacar? Vemos que un corte numérico, 0:2, *omite* el índice final
+(es decir, el índice 2) en el rango proporcionado, mientras que un corte con nombre,
+'gdpPercap\_1952':'gdpPercap\_1962', *incluye* el elemento final.
 
 
 
@@ -405,12 +418,12 @@ while a named slice, 'gdpPercap\_1952':'gdpPercap\_1962', *includes* the final e
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Reconstructing Data
+## Reconstruyendo Datos
 
-Explain what each line in the following short program does:
-what is in `first`, `second`, etc.?
+Explica qué hace cada línea del siguiente programa corto: ¿qué hay en `first`, `second`,
+etc.?
 
 ```python
 first = pd.read_csv('data/gapminder_all.csv', index_col='country')
@@ -420,52 +433,55 @@ fourth = third.drop('continent', axis = 1)
 fourth.to_csv('result.csv')
 ```
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-Let's go through this piece of code line by line.
+Repasemos este trozo de código línea por línea.
 
 ```python
 first = pd.read_csv('data/gapminder_all.csv', index_col='country')
 ```
 
-This line loads the dataset containing the GDP data from all countries into a dataframe called
-`first`. The `index_col='country'` parameter selects which column to use as the
-row labels in the dataframe.
+Esta línea carga el conjunto de datos que contiene los datos del PIB de todos los países
+en un marco de datos llamado `first`. El parámetro `index_col='country'` selecciona la
+columna que se utilizará como etiquetas de fila en el marco de datos.
 
 ```python
 second = first[first['continent'] == 'Americas']
 ```
 
-This line makes a selection: only those rows of `first` for which the 'continent' column matches
-'Americas' are extracted. Notice how the Boolean expression inside the brackets,
-`first['continent'] == 'Americas'`, is used to select only those rows where the expression is true.
-Try printing this expression! Can you print also its individual True/False elements?
-(hint: first assign the expression to a variable)
+Esta línea realiza una selección: sólo se extraen las filas de `first` cuya columna
+"continente" coincida con "Américas". Observe cómo la expresión booleana dentro de los
+corchetes, `first['continent'] == 'Americas'`, se utiliza para seleccionar sólo aquellas
+filas en las que la expresión es verdadera. Intente imprimir esta expresión ¿Puede
+imprimir también sus elementos individuales Verdadero/Falso? (pista: asigna primero la
+expresión a una variable)
 
 ```python
 third = second.drop('Puerto Rico')
 ```
 
-As the syntax suggests, this line drops the row from `second` where the label is 'Puerto Rico'. The
-resulting dataframe `third` has one row less than the original dataframe `second`.
+Como sugiere la sintaxis, esta línea elimina la fila de `second` donde la etiqueta es
+'Puerto Rico'. El marco de datos resultante `third` tiene una fila menos que el marco de
+datos original `second`.
 
 ```python
 fourth = third.drop('continent', axis = 1)
 ```
 
-Again we apply the drop function, but in this case we are dropping not a row but a whole column.
-To accomplish this, we need to specify also the `axis` parameter (we want to drop the second column
-which has index 1).
+Volvemos a aplicar la función drop, pero en este caso no eliminamos una fila, sino una
+columna entera. Para ello, tenemos que especificar también el parámetro `axis` (queremos
+eliminar la segunda columna que tiene el índice 1).
 
 ```python
 fourth.to_csv('result.csv')
 ```
 
-The final step is to write the data that we have been working on to a csv file. Pandas makes this easy
-with the `to_csv()` function. The only required argument to the function is the filename. Note that the
-file will be written in the directory from which you started the Jupyter or Python session.
+El paso final es escribir los datos con los que hemos estado trabajando en un fichero
+csv. Pandas hace esto fácil con la función `to_csv()`. El único argumento requerido para
+la función es el nombre del fichero. Ten en cuenta que el fichero se escribirá en el
+directorio desde el que iniciaste la sesión de Jupyter o Python.
 
 
 
@@ -473,12 +489,12 @@ file will be written in the directory from which you started the Jupyter or Pyth
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Selecting Indices
+## Selección de índices
 
-Explain in simple terms what `idxmin` and `idxmax` do in the short program below.
-When would you use these methods?
+Explica en términos sencillos lo que hacen `idxmin` y `idxmax` en el breve programa que
+aparece a continuación. ¿Cuándo utilizarías estos métodos?
 
 ```python
 data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
@@ -486,14 +502,15 @@ print(data.idxmin())
 print(data.idxmax())
 ```
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-For each column in `data`, `idxmin` will return the index value corresponding to each column's minimum;
-`idxmax` will do accordingly the same for each column's maximum value.
+Para cada columna de `data`, `idxmin` devolverá el valor del índice correspondiente al
+mínimo de cada columna; `idxmax` hará lo mismo para el valor máximo de cada columna.
 
-You can use these functions whenever you want to get the row index of the minimum/maximum value and not the actual minimum/maximum value.
+Puede utilizar estas funciones siempre que desee obtener el índice de fila del valor
+mínimo/máximo y no el valor mínimo/máximo real.
 
 
 
@@ -501,22 +518,23 @@ You can use these functions whenever you want to get the row index of the minimu
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Practice with Selection
+## Practica con la selección
 
-Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded.
-Write an expression to select each of the following:
+Supongamos que se ha importado Pandas y se han cargado los datos de PIB de Gapminder
+para Europa. Escriba una expresión para seleccionar cada uno de los siguientes
+elementos:
 
-1. GDP per capita for all countries in 1982.
-2. GDP per capita for Denmark for all years.
-3. GDP per capita for all countries for years *after* 1985.
-4. GDP per capita for each country in 2007 as a multiple of
-  GDP per capita for that country in 1952.
+1. PIB per cápita de todos los países en 1982.
+2. PIB per cápita de Dinamarca para todos los años.
+3. PIB per cápita de todos los países para los años *después* de 1985.
+4. PIB per cápita de cada país en 2007 como múltiplo del PIB per cápita de ese país en
+   1952.
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
 1:
 
@@ -536,7 +554,10 @@ data.loc['Denmark',:]
 data.loc[:,'gdpPercap_1985':]
 ```
 
-Pandas is smart enough to recognize the number at the end of the column label and does not give you an error, although no column named `gdpPercap_1985` actually exists. This is useful if new columns are added to the CSV file later.
+Pandas es lo suficientemente inteligente como para reconocer el número al final de la
+etiqueta de la columna y no le da un error, aunque en realidad no exista ninguna columna
+llamada `gdpPercap_1985`. Esto es útil si más tarde se añaden nuevas columnas al fichero
+CSV.
 
 4:
 
@@ -548,29 +569,29 @@ data['gdpPercap_2007']/data['gdpPercap_1952']
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Many Ways of Access
+## Muchas formas de acceso
 
-There are at least two ways of accessing a value or slice of a DataFrame: by name or index.
-However, there are many others. For example, a single column or row can be accessed either as a `DataFrame`
-or a `Series` object.
+Existen al menos dos formas de acceder a un valor o a un segmento de un DataFrame: por
+nombre o por índice. Sin embargo, existen muchas otras. Por ejemplo, se puede acceder a
+una sola columna o fila como un objeto `DataFrame` o `Series`.
 
-Suggest different ways of doing the following operations on a DataFrame:
+Sugiere distintas formas de realizar las siguientes operaciones en un DataFrame:
 
-1. Access a single column
-2. Access a single row
-3. Access an individual DataFrame element
-4. Access several columns
-5. Access several rows
-6. Access a subset of specific rows and columns
-7. Access a subset of row and column ranges
+1. Accede a una sola columna
+2. Accede a una única fila
+3. Accede a un elemento individual del DataFrame
+4. Accede a varias columnas
+5. Accede a varias filas
+6. Accede a un subconjunto de filas y columnas específicas
+7. Accede a un subconjunto de rangos de filas y columnas
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-1\. Access a single column:
+1\. Accede a una sola columna:
 
 ```python
 # by name
@@ -592,7 +613,7 @@ data.iloc[:, [col_index]] # as a DataFrame
 data.T[data.T.index == "col_name"].T
 ```
 
-2\. Access a single row:
+2\. Accede a una única fila:
 
 ```python
 # by name using .loc
@@ -611,7 +632,7 @@ data.iloc[[row_index]]   # as a DataFrame
 data[data.index == "row_name"]
 ```
 
-3\. Access an individual DataFrame element:
+3\. Accede a un elemento individual del DataFrame:
 
 ```python
 # by column/row names
@@ -651,7 +672,7 @@ data.iloc[:, [col_index]].loc[["row_name"]]  # as a DataFrame
 data[data.index == "row_name"].T[data.T.index == "col_name"].T
 ```
 
-4\. Access several columns:
+4\. Accede a varias columnas:
 
 ```python
 # by name
@@ -662,7 +683,7 @@ data.loc[:, ["col1", "col2", "col3"]]
 data.iloc[:, [col1_index, col2_index, col3_index]]
 ```
 
-5\. Access several rows
+5\. Accede a varias filas
 
 ```python
 # by name
@@ -672,7 +693,7 @@ data.loc[["row1", "row2", "row3"]]
 data.iloc[[row1_index, row2_index, row3_index]]
 ```
 
-6\. Access a subset of specific rows and columns
+6\. Accede a un subconjunto de filas y columnas específicas
 
 ```python
 # by names
@@ -688,7 +709,7 @@ data[["col1", "col2", "col3"]].iloc[[row1_index, row2_index, row3_index]]
 data.iloc[:, [col1_index, col2_index, col3_index]].loc[["row1", "row2", "row3"]]
 ```
 
-7\. Access a subset of row and column ranges
+7\. Accede a un subconjunto de rangos de filas y columnas
 
 ```python
 # by name
@@ -708,18 +729,21 @@ data.iloc[:, col1_index:col2_index].loc["row1":"row2"]
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Exploring available methods using the `dir()` function
+## Explorar los métodos disponibles utilizando la función `dir()`
 
-Python includes a `dir()` function that can be used to display all of the available methods (functions) that are built into a data object.  In Episode 4, we used some methods with a string. But we can see many more are available by using `dir()`:
+Python incluye una función `dir()` que se puede utilizar para mostrar todos los métodos
+disponibles (funciones) que están incorporados en un objeto de datos. En el Episodio 4,
+utilizamos algunos métodos con una cadena. Pero podemos ver muchos más disponibles
+usando `dir()`:
 
 ```python
 my_string = 'Hello world!'   # creation of a string object 
 dir(my_string)
 ```
 
-This command returns:
+Este comando devuelve:
 
 ```python
 ['__add__',
@@ -733,16 +757,20 @@ This command returns:
 'zfill']
 ```
 
-You can use `help()` or <kbd>Shift</kbd>\+<kbd>Tab</kbd> to get more information about what these methods do.
+Puede utilizar `help()` o <kbd>Shift</kbd>\+<kbd>Tab</kbd> para obtener más información
+sobre lo que hacen estos métodos.
 
-Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded as `data`.  Then, use `dir()`
-to find the function that prints out the median per-capita GDP across all European countries for each year that information is available.
+Supongamos que se ha importado Pandas y se han cargado los datos del PIB de Gapminder
+para Europa como `data`. A continuación, utilice `dir()` para encontrar la función que
+imprime la mediana del PIB per cápita en todos los países europeos para cada año en que
+la información está disponible.
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-Among many choices, `dir()` lists the `median()` function as a possibility.  Thus,
+Entre muchas opciones, `dir()` lista la función `median()` como una posibilidad. Por lo
+tanto
 
 ```python
 data.median()
@@ -752,32 +780,35 @@ data.median()
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Interpretation
+## Interpretación
 
-Poland's borders have been stable since 1945,
-but changed several times in the years before then.
-How would you handle this if you were creating a table of GDP per capita for Poland
-for the entire twentieth century?
+Las fronteras de Polonia han sido estables desde 1945, pero cambiaron varias veces en
+los años anteriores. ¿Cómo gestionaría esta situación si estuviera creando una tabla del
+PIB per cápita de Polonia para todo el siglo XX?
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-[pandas-dataframe]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
-[pandas-series]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
+[pandas-dataframe]:
+https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
+[pandas-series]:
+https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
 [numpy]: https://www.numpy.org/
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Use `DataFrame.iloc[..., ...]` to select values by integer location.
-- Use `:` on its own to mean all columns or all rows.
-- Select multiple columns or rows using `DataFrame.loc` and a named slice.
-- Result of slicing can be used in further operations.
-- Use comparisons to select data based on value.
-- Select values or NaN using a Boolean mask.
+- Usa `DataFrame.iloc[..., ...]` para seleccionar valores por posición entera.
+- Use `:` solo para significar todas las columnas o todas las filas.
+- Selecciona múltiples columnas o filas usando `DataFrame.loc` y una rebanada con
+  nombre.
+- El resultado del corte puede usarse en operaciones posteriores.
+- Utiliza comparaciones para seleccionar datos en función de su valor.
+- Selecciona valores o NaN usando una máscara booleana.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 

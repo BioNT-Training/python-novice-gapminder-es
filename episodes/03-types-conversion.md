@@ -1,38 +1,40 @@
 ---
-title: Data Types and Type Conversion
+title: Tipos de datos y conversión de tipos
 teaching: 10
 exercises: 10
 ---
 
+
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain key differences between integers and floating point numbers.
-- Explain key differences between numbers and character strings.
-- Use built-in functions to convert between integers, floating point numbers, and strings.
+- Explica las principales diferencias entre los números enteros y los de coma flotante.
+- Explica las principales diferencias entre números y cadenas de caracteres.
+- Utiliza funciones incorporadas para convertir entre enteros, números de coma flotante
+  y cadenas.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- What kinds of data do programs store?
-- How can I convert one type to another?
+- ¿Qué tipo de datos almacenan los programas?
+- ¿Cómo puedo convertir un tipo en otro?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Every value has a type.
+## Cada valor tiene un tipo.
 
-- Every value in a program has a specific type.
-- Integer (`int`): represents positive or negative whole numbers like 3 or -512.
-- Floating point number (`float`): represents real numbers like 3.14159 or -2.5.
-- Character string (usually called "string", `str`): text.
-  - Written in either single quotes or double quotes (as long as they match).
-  - The quote marks aren't printed when the string is displayed.
+- Cada valor en un programa tiene un tipo específico.
+- Número entero (`int`): representa números enteros positivos o negativos como 3 o -512.
+- Número en coma flotante (`float`): representa números reales como 3.14159 o -2.5.
+- Cadena de caracteres (normalmente llamada "string", `str`): texto.
+  - Escrita entre comillas simples o dobles (siempre que coincidan).
+  - Las comillas no se imprimen cuando se muestra la cadena.
 
-## Use the built-in function `type` to find the type of a value.
+## Utilice la función incorporada `type` para encontrar el tipo de un valor.
 
-- Use the built-in function `type` to find out what type a value has.
-- Works on variables as well.
-  - But remember: the *value* has the type --- the *variable* is just a label.
+- Utilice la función incorporada `type` para averiguar qué tipo tiene un valor.
+- También funciona con variables.
+  - Pero recuerda: el *valor* tiene el tipo --- la *variable* es sólo una etiqueta.
 
 ```python
 print(type(52))
@@ -51,9 +53,9 @@ print(type(fitness))
 <class 'str'>
 ```
 
-## Types control what operations (or methods) can be performed on a given value.
+## Los tipos controlan qué operaciones (o métodos) pueden realizarse sobre un valor dado.
 
-- A value's type determines what the program can do to it.
+- El tipo de un valor determina lo que el programa puede hacer con él.
 
 ```python
 print(5 - 3)
@@ -76,9 +78,9 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ```
 
-## You can use the "+" and "\*" operators on strings.
+## Puede utilizar los operadores "+" y "\*" en cadenas.
 
-- "Adding" character strings concatenates them.
+- "Sumar" cadenas de caracteres las concatena.
 
 ```python
 full_name = 'Ahmed' + ' ' + 'Walsh'
@@ -89,8 +91,9 @@ print(full_name)
 Ahmed Walsh
 ```
 
-- Multiplying a character string by an integer *N* creates a new string that consists of that character string repeated  *N* times.
-  - Since multiplication is repeated addition.
+- Al multiplicar una cadena de caracteres por un número entero *N* se crea una nueva
+  cadena que consiste en esa cadena de caracteres repetida *N* veces.
+  - Dado que la multiplicación es una suma repetida.
 
 ```python
 separator = '=' * 10
@@ -101,9 +104,9 @@ print(separator)
 ==========
 ```
 
-## Strings have a length (but numbers don't).
+## Las cadenas tienen una longitud (pero los números no).
 
-- The built-in function `len` counts the number of characters in a string.
+- La función incorporada `len` cuenta el número de caracteres de una cadena.
 
 ```python
 print(len(full_name))
@@ -113,7 +116,7 @@ print(len(full_name))
 11
 ```
 
-- But numbers don't have a length (not even zero).
+- Pero los números no tienen longitud (ni siquiera cero).
 
 ```python
 print(len(52))
@@ -128,9 +131,9 @@ TypeError                                 Traceback (most recent call last)
 TypeError: object of type 'int' has no len()
 ```
 
-## Must convert numbers to strings or vice versa when operating on them. {#convert-numbers-and-strings}
+## Debe convertir números en cadenas o viceversa cuando opera con ellos. {#convertir-números-y-cadenas}
 
-- Cannot add numbers and strings.
+- No puede sumar números y cadenas.
 
 ```python
 print(1 + '2')
@@ -145,8 +148,8 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ```
 
-- Not allowed because it's ambiguous: should `1 + '2'` be `3` or `'12'`?
-- Some types can be converted to other types by using the type name as a function.
+- No está permitido porque es ambiguo: ¿debería `1 + '2'` ser `3` o `'12'`?
+- Algunos tipos pueden convertirse en otros utilizando el nombre del tipo como función.
 
 ```python
 print(1 + int('2'))
@@ -158,10 +161,10 @@ print(str(1) + '2')
 12
 ```
 
-## Can mix integers and floats freely in operations.
+## Puede mezclar enteros y flotantes libremente en las operaciones.
 
-- Integers and floating-point numbers can be mixed in arithmetic.
-  - Python 3 automatically converts integers to floats as needed.
+- Los números enteros y los de coma flotante pueden mezclarse en aritmética.
+  - Python 3 convierte automáticamente enteros a flotantes cuando es necesario.
 
 ```python
 print('half is', 1 / 2.0)
@@ -173,12 +176,11 @@ half is 0.5
 three squared is 9.0
 ```
 
-## Variables only change value when something is assigned to them.
+## Las variables sólo cambian de valor cuando se les asigna algo.
 
-- If we make one cell in a spreadsheet depend on another,
-  and update the latter,
-  the former updates automatically.
-- This does **not** happen in programming languages.
+- Si hacemos que una celda de una hoja de cálculo dependa de otra, y actualizamos esta
+  última, la primera se actualiza automáticamente.
+- Esto **no** ocurre en los lenguajes de programación.
 
 ```python
 variable_one = 1
@@ -191,24 +193,24 @@ print('first is', variable_one, 'and second is', variable_two)
 first is 2 and second is 5
 ```
 
-- The computer reads the value of `variable_one` when doing the multiplication,
-  creates a new value, and assigns it to `variable_two`.
-- Afterwards, the value of `variable_two` is set to the new value and *not dependent on `variable_one`* so its value
-  does not automatically change when `variable_one` changes.
+- El ordenador lee el valor de `variable_one` al hacer la multiplicación, crea un nuevo
+  valor y se lo asigna a `variable_two`.
+- Después, el valor de `variable_two` se fija al nuevo valor y *no depende de
+  `variable_one`* por lo que su valor no cambia automáticamente cuando cambia
+  `variable_one`.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Fractions
+## Fracciones
 
-What type of value is 3.4?
-How can you find out?
+¿Qué tipo de valor es 3.4? ¿Cómo puedes averiguarlo?
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-It is a floating-point number (often abbreviated "float").
-It is possible to find out by using the built-in function `type()`.
+Es un número de coma flotante (a menudo abreviado "float"). Se puede averiguar
+utilizando la función incorporada `type()`.
 
 ```python
 print(type(3.4))
@@ -222,18 +224,18 @@ print(type(3.4))
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Automatic Type Conversion
+## Conversión automática de tipos
 
-What type of value is 3.25 + 4?
+¿Qué tipo de valor es 3,25 + 4?
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-It is a float:
-integers are automatically converted to floats as necessary.
+Es un flotador: los enteros se convierten automáticamente en flotadores cuando es
+necesario.
 
 ```python
 result = 3.25 + 4
@@ -248,45 +250,51 @@ print(result, 'is', type(result))
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Choose a Type
+## Elija un tipo
 
-What type of value (integer, floating point number, or character string)
-would you use to represent each of the following?  Try to come up with more than one good answer for each problem.  For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?
+¿Qué tipo de valor (entero, número de coma flotante o cadena de caracteres) utilizarías
+para representar cada uno de los siguientes elementos? Intenta dar más de una buena
+respuesta para cada problema. Por ejemplo, en # 1, ¿cuándo tendría más sentido contar
+los días con una variable de coma flotante que con un número entero?
 
-1. Number of days since the start of the year.
-2. Time elapsed from the start of the year until now in days.
-3. Serial number of a piece of lab equipment.
-4. A lab specimen's age
-5. Current population of a city.
-6. Average population of a city over time.
+1. Número de días transcurridos desde el inicio del año.
+2. Tiempo transcurrido desde el inicio del año hasta ahora en días.
+3. Número de serie de un equipo de laboratorio.
+4. Edad de una muestra de laboratorio
+5. Población actual de una ciudad.
+6. Población media de una ciudad a lo largo del tiempo.
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-The answers to the questions are:
+Las respuestas a las preguntas son:
 
-1. Integer, since the number of days would lie between 1 and 365.
-2. Floating point, since fractional days are required
-3. Character string if serial number contains letters and numbers, otherwise integer if the serial number consists only of numerals
-4. This will vary! How do you define a specimen's age? whole days since collection (integer)? date and time (string)?
-5. Choose floating point to represent population as large aggregates (eg millions), or integer to represent population in units of individuals.
-6. Floating point number, since an average is likely to have a fractional part.
-  
-  
+1. Número entero, ya que el número de días estaría comprendido entre 1 y 365.
+2. coma flotante, ya que se requieren días fraccionarios
+3. Cadena de caracteres si el número de serie contiene letras y números, en caso
+   contrario entero si el número de serie consta sólo de números
+4. ¡Esto variará! ¿Cómo se define la edad de un espécimen? ¿días enteros desde la
+   recogida (entero)? ¿fecha y hora (cadena)?
+5. Elija coma flotante para representar la población como grandes agregados (por
+   ejemplo, millones), o enteros para representar la población en unidades de
+   individuos.
+6. Número en coma flotante, ya que es probable que un promedio tenga una parte
+   fraccionaria.
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Division Types
+## Tipos de división
 
-In Python 3, the `//` operator performs integer (whole-number) floor division, the `/` operator performs floating-point
-division, and the `%` (or *modulo*) operator calculates and returns the remainder from integer division:
+En Python 3, el operador `//` realiza la división de enteros (números enteros), el
+operador `/` realiza la división de coma flotante, y el operador `%` (o *modulo*)
+calcula y devuelve el resto de la división de enteros:
 
 ```python
 print('5 // 3:', 5 // 3)
@@ -300,20 +308,19 @@ print('5 % 3:', 5 % 3)
 5 % 3: 2
 ```
 
-If `num_subjects` is the number of subjects taking part in a study,
-and `num_per_survey` is the number that can take part in a single survey,
-write an expression that calculates the number of surveys needed
-to reach everyone once.
+Si `num_subjects` es el número de sujetos que participan en un estudio, y
+`num_per_survey` es el número que puede participar en una sola encuesta, escriba una
+expresión que calcule el número de encuestas necesarias para llegar a todos una sola
+vez.
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-We want the minimum number of surveys that reaches everyone once, which is
-the rounded up value of `num_subjects/ num_per_survey`. This is
-equivalent to performing a floor division with `//` and adding 1. Before
-the division we need to subtract 1 from the number of subjects to deal with
-the case where `num_subjects` is evenly divisible by `num_per_survey`.
+Queremos el número mínimo de encuestas que llega a todos una vez, que es el valor
+redondeado de `num_subjects/ num_per_survey`. Esto equivale a realizar una división por
+el suelo con `//` y sumarle 1. Antes de la división hay que restar 1 al número de
+sujetos para el caso en que `num_subjects` sea divisible por `num_per_survey`.
 
 ```python
 num_subjects = 600
@@ -331,12 +338,12 @@ print(num_subjects, 'subjects,', num_per_survey, 'per survey:', num_surveys)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Strings to Numbers
+## Cadenas a Números
 
-Where reasonable, `float()` will convert a string to a floating point number,
-and `int()` will convert a floating point number to an integer:
+Cuando sea razonable, `float()` convertirá una cadena a un número de coma flotante, y
+`int()` convertirá un número de coma flotante a un entero:
 
 ```python
 print("string to float:", float("3.4"))
@@ -348,7 +355,7 @@ string to float: 3.4
 float to int: 3
 ```
 
-If the conversion doesn't make sense, however, an error message will occur.
+Sin embargo, si la conversión no tiene sentido, aparecerá un mensaje de error.
 
 ```python
 print("string to float:", float("Hello world!"))
@@ -363,23 +370,24 @@ ValueError                                Traceback (most recent call last)
 ValueError: could not convert string to float: 'Hello world!'
 ```
 
-Given this information, what do you expect the following program to do?
+Dada esta información, ¿qué esperas que haga el siguiente programa?
 
-What does it actually do?
+¿Qué hace realmente?
 
-Why do you think it does that?
+¿Por qué crees que hace eso?
 
 ```python
 print("fractional string to int:", int("3.4"))
 ```
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-What do you expect this program to do? It would not be so unreasonable to expect the Python 3 `int` command to
-convert the string "3.4" to 3.4 and an additional type conversion to 3. After all, Python 3 performs a lot of other
-magic - isn't that part of its charm?
+¿Qué esperas que haga este programa? No sería tan descabellado esperar que el comando
+`int` de Python 3 convirtiera la cadena "3.4" a 3.4 y una conversión de tipo adicional a
+3. Después de todo, Python 3 realiza muchas otras magias - ¿no es eso parte de su
+encanto?
 
 ```python
 int("3.4")
@@ -393,8 +401,9 @@ ValueError                                Traceback (most recent call last)
 ValueError: invalid literal for int() with base 10: '3.4'
 ```
 
-However, Python 3 throws an error. Why? To be consistent, possibly. If you ask Python to perform two consecutive
-typecasts, you must convert it explicitly in code.
+Sin embargo, Python 3 arroja un error. ¿Por qué? Para ser consistente, posiblemente. Si
+le pides a Python que realice dos typecasts consecutivos, debes convertirlo
+explícitamente en código.
 
 ```python
 int(float("3.4"))
@@ -408,12 +417,12 @@ int(float("3.4"))
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Arithmetic with Different Types
+## Aritmética con diferentes tipos
 
-Which of the following will return the floating point number `2.0`?
-Note: there may be more than one right answer.
+¿Cuál de las siguientes opciones devolverá el número de coma flotante `2.0`? Nota: puede
+haber más de una respuesta correcta.
 
 ```python
 first = 1.0
@@ -428,11 +437,11 @@ third = "1.1"
 5. `int(first) + int(float(third))`
 6. `2.0 * second`
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-Answer: 1 and 4
+Respuesta: 1 y 4
 
 
 
@@ -440,15 +449,13 @@ Answer: 1 and 4
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Complex Numbers
+## Números Complejos
 
-Python provides complex numbers,
-which are written as `1.0+2.0j`.
-If `val` is a complex number,
-its real and imaginary parts can be accessed using *dot notation*
-as `val.real` and `val.imag`.
+Python proporciona números complejos, que se escriben como `1.0+2.0j`. Si `val` es un
+número complejo, se puede acceder a sus partes real e imaginaria usando *notación de
+puntos* como `val.real` y `val.imag`.
 
 ```python
 a_complex_number = 6 + 2j
@@ -461,23 +468,24 @@ print(a_complex_number.imag)
 2.0
 ```
 
-1. Why do you think Python uses `j` instead of `i` for the imaginary part?
-2. What do you expect `1 + 2j + 3` to produce?
-3. What do you expect `4j` to be?  What about `4 j` or `4 + j`?
+1. ¿Por qué crees que Python utiliza `j` en lugar de `i` para la parte imaginaria?
+2. ¿Qué esperas que produzca `1 + 2j + 3`?
+3. ¿Qué esperas que sea `4j`? ¿Y `4 j` o `4 + j`?
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-1. Standard mathematics treatments typically use `i` to denote an imaginary number. However, from media reports it
-  was an early convention established from electrical engineering that now presents a technically expensive area to
-  change. [Stack Overflow provides additional explanation and
-  discussion.](https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i)
+1. Los tratamientos matemáticos estándar suelen utilizar `i` para denotar un número
+   imaginario. Sin embargo, según los informes de los medios de comunicación, se trata
+   de una antigua convención establecida a partir de la ingeniería eléctrica que ahora
+   presenta un área técnicamente costosa de cambiar. [Stack Overflow proporciona
+   explicaciones y discusiones
+   adicionales](https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i)
 2. `(4+2j)`
-3. `4j` and `Syntax Error: invalid syntax`. In the latter cases, `j` is considered a variable and the statement
-  depends on if `j` is defined and if so, its assigned value.
-  
-  
+3. `4j` y `Syntax Error: invalid syntax`. En estos últimos casos, `j` se considera una
+   variable y la sentencia depende de si `j` está definida y, en caso afirmativo, de su
+   valor asignado.
 
 :::::::::::::::::::::::::
 
@@ -485,15 +493,16 @@ print(a_complex_number.imag)
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Every value has a type.
-- Use the built-in function `type` to find the type of a value.
-- Types control what operations can be done on values.
-- Strings can be added and multiplied.
-- Strings have a length (but numbers don't).
-- Must convert numbers to strings or vice versa when operating on them.
-- Can mix integers and floats freely in operations.
-- Variables only change value when something is assigned to them.
+- Cada valor tiene un tipo.
+- Utilice la función incorporada `type` para encontrar el tipo de un valor.
+- Los tipos controlan las operaciones que se pueden realizar con los valores.
+- Las cadenas pueden sumarse y multiplicarse.
+- Las cadenas tienen longitud (pero los números no).
+- Debe convertir números en cadenas o viceversa cuando opera con ellos.
+- Puede mezclar enteros y flotantes libremente en las operaciones.
+- Las variables sólo cambian de valor cuando se les asigna algo.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 

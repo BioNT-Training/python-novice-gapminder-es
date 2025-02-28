@@ -1,27 +1,30 @@
 ---
-title: Looping Over Data Sets
+title: Bucle sobre conjuntos de datos
 teaching: 5
 exercises: 10
 ---
 
+
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Be able to read and write globbing expressions that match sets of files.
-- Use glob to create lists of files.
-- Write for loops to perform operations on files given their names in a list.
+- Ser capaz de leer y escribir expresiones globbing que coincidan con conjuntos de
+  ficheros.
+- Utilice glob para crear listas de ficheros.
+- Escribe bucles for para realizar operaciones sobre ficheros dados sus nombres en una
+  lista.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I process many data sets with a single command?
+- ¿Cómo puedo procesar muchos conjuntos de datos con un solo comando?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use a `for` loop to process files given a list of their names.
+## Utiliza un bucle `for` para procesar ficheros dada una lista de sus nombres.
 
-- A filename is a character string.
-- And lists can contain character strings.
+- Un nombre de fichero es una cadena de caracteres.
+- Y las listas pueden contener cadenas de caracteres.
 
 ```python
 import pandas as pd
@@ -51,17 +54,21 @@ gdpPercap_2007    944
 dtype: float64
 ```
 
-## Use [`glob.glob`](https://docs.python.org/3/library/glob.html#glob.glob) to find sets of files whose names match a pattern.
+## Use [`glob.glob`](https://docs.python.org/3/library/glob.html#glob.glob) para encontrar conjuntos de ficheros cuyos nombres coincidan con un patrón.
 
-- In Unix, the term "globbing" means "matching a set of files with a pattern".
-- The most common patterns are:
-  - `*` meaning "match zero or more characters"
-  - `?` meaning "match exactly one character"
-- Python's standard library contains the [`glob`](https://docs.python.org/3/library/glob.html) module to provide pattern matching functionality
-- The [`glob`](https://docs.python.org/3/library/glob.html) module contains a function also called `glob` to match file patterns
-- E.g., `glob.glob('*.txt')` matches all files in the current directory
-  whose names end with `.txt`.
-- Result is a (possibly empty) list of character strings.
+- En Unix, el término "globbing" significa "buscar un conjunto de ficheros con un
+  patrón".
+- Los patrones más comunes son:
+  - `*` significa "coincide con cero o más caracteres"
+  - `?` significa "coincide exactamente con un carácter"
+- La biblioteca estándar de Python contiene el módulo
+  [`glob`](https://docs.python.org/3/library/glob.html) para proporcionar la
+  funcionalidad de coincidencia de patrones
+- El módulo [`glob`](https://docs.python.org/3/library/glob.html) contiene una función
+  también llamada `glob` para encontrar patrones de ficheros
+- Por ejemplo, `glob.glob('*.txt')` coincide con todos los ficheros del directorio
+  actual cuyos nombres terminen en `.txt`.
+- El resultado es una lista (posiblemente vacía) de cadenas de caracteres.
 
 ```python
 import glob
@@ -82,10 +89,10 @@ print('all PDB files:', glob.glob('*.pdb'))
 all PDB files: []
 ```
 
-## Use `glob` and `for` to process batches of files.
+## Utilice `glob` y `for` para procesar lotes de ficheros.
 
-- Helps a lot if the files are named and stored systematically and consistently
-  so that simple patterns will find the right data.
+- Ayuda mucho si los ficheros se nombran y almacenan de forma sistemática y consistente
+  para que los patrones simples encuentren los datos correctos.
 
 ```python
 for filename in glob.glob('data/gapminder_*.csv'):
@@ -102,26 +109,27 @@ data/gapminder_gdp_europe.csv 973.5331948
 data/gapminder_gdp_oceania.csv 10039.59564
 ```
 
-- This includes all data, as well as per-region data.
-- Use a more specific pattern in the exercises to exclude the whole data set.
-- But note that the minimum of the entire data set is also the minimum of one of the data sets,
-  which is a nice check on correctness.
+- Incluye todos los datos, así como los datos por región.
+- Utilice un patrón más específico en los ejercicios para excluir todo el conjunto de
+  datos.
+- Pero tenga en cuenta que el mínimo de todo el conjunto de datos es también el mínimo
+  de uno de los conjuntos de datos, lo que es una buena comprobación de la corrección.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Determining Matches
+## Determinación de coincidencias
 
-Which of these files is *not* matched by the expression `glob.glob('data/*as*.csv')`?
+¿Cuál de estos ficheros *no* coincide con la expresión `glob.glob('data/*as*.csv')`?
 
 1. `data/gapminder_gdp_africa.csv`
 2. `data/gapminder_gdp_americas.csv`
 3. `data/gapminder_gdp_asia.csv`
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-1 is not matched by the glob.
+1 no coincide con el glob.
 
 
 
@@ -129,12 +137,12 @@ Which of these files is *not* matched by the expression `glob.glob('data/*as*.cs
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Minimum File Size
+## Tamaño mínimo de fichero
 
-Modify this program so that it prints the number of records in
-the file that has the fewest records.
+Modifica este programa para que imprima el número de registros del fichero que menos
+registros tenga.
 
 ```python
 import glob
@@ -146,12 +154,12 @@ for filename in glob.glob('data/*.csv'):
 print('smallest file has', fewest, 'records')
 ```
 
-Note that the [`DataFrame.shape()` method][shape-method]
-returns a tuple with the number of rows and columns of the data frame.
+Tenga en cuenta que el método [`DataFrame.shape()`][shape-method] devuelve una tupla con
+el número de filas y columnas del marco de datos.
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
 ```python
 import glob
@@ -163,10 +171,11 @@ for filename in glob.glob('data/*.csv'):
 print('smallest file has', fewest, 'records')
 ```
 
-You might have chosen to initialize the `fewest` variable with a number greater than the numbers
-you're dealing with, but that could lead to trouble if you reuse the code with bigger numbers.
-Python lets you use positive infinity, which will work no matter how big your numbers are.
-What other special strings does the [`float` function][float-function] recognize?
+Puede que hayas elegido inicializar la variable `fewest` con un número mayor que los
+números con los que estás tratando, pero eso podría traerte problemas si reutilizas el
+código con números mayores. Python te permite usar infinito positivo, que funcionará sin
+importar lo grandes que sean tus números. ¿Qué otras cadenas especiales reconoce la
+función [`float`][float-function]?
 
 
 
@@ -174,23 +183,23 @@ What other special strings does the [`float` function][float-function] recognize
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Comparing Data
+## Comparación de datos
 
-Write a program that reads in the regional data sets
-and plots the average GDP per capita for each region over time
-in a single chart. Pandas will raise an error if it encounters
-non-numeric columns in a dataframe computation so you may need
-to either filter out those columns or tell pandas to ignore them.
+Escribe un programa que lea los conjuntos de datos regionales y represente el PIB per
+cápita medio de cada región a lo largo del tiempo en un único gráfico. Pandas emitirá un
+error si encuentra columnas no numéricas en el cálculo de un marco de datos, por lo que
+es posible que tenga que filtrar esas columnas o decirle a pandas que las ignore.
 
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-This solution builds a useful legend by using the [string `split` method][split-method] to
-extract the `region` from the path 'data/gapminder\_gdp\_a\_specific\_region.csv'.
+Esta solución construye una leyenda útil utilizando el método [string `split`
+method][split-method] para extraer el `region` de la ruta
+'data/gapminder\_gdp\_a\_specific\_region.csv'.
 
 ```python
 import glob
@@ -230,13 +239,14 @@ plt.show()
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::::::::::::::::::::::::::::::::::::::::: callout
 
-## Dealing with File Paths
+## Tratamiento de rutas de ficheros
 
-The [`pathlib` module][pathlib-module] provides useful abstractions for file and path manipulation like
-returning the name of a file without the file extension. This is very useful when looping over files and
-directories. In the example below, we create a `Path` object and inspect its attributes.
+El módulo [`pathlib`][pathlib-module] proporciona abstracciones útiles para la
+manipulación de ficheros y rutas, como devolver el nombre de un fichero sin la
+extensión. Esto es muy útil cuando se realiza un bucle sobre archivos y directorios. En
+el siguiente ejemplo, creamos un objeto `Path` e inspeccionamos sus atributos.
 
 ```python
 from pathlib import Path
@@ -253,13 +263,14 @@ gapminder_gdp_africa
 .csv
 ```
 
-**Hint:** Check all available attributes and methods on the `Path` object with the `dir()`
-function.
+**Pista:** Comprueba todos los atributos y métodos disponibles en el objeto `Path` con
+la función `dir()`.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-[shape-method]: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.shape.html
+[shape-method]:
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.shape.html
 [float-function]: https://docs.python.org/3/library/functions.html#float
 [split-method]: https://docs.python.org/3/library/stdtypes.html#str.split
 [pathlib-module]: https://docs.python.org/3/library/pathlib.html
@@ -267,10 +278,12 @@ function.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Use a `for` loop to process files given a list of their names.
-- Use `glob.glob` to find sets of files whose names match a pattern.
-- Use `glob` and `for` to process batches of files.
+- Utiliza un bucle `for` para procesar ficheros a partir de una lista de nombres.
+- Utilice `glob.glob` para encontrar conjuntos de ficheros cuyos nombres coincidan con
+  un patrón.
+- Utilice `glob` y `for` para procesar lotes de ficheros.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 

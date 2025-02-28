@@ -1,16 +1,17 @@
 ---
-title: Morning Coffee
+title: Café de la mañana
 teaching: 0
 exercises: 0
 break: 15
 ---
 
-## Reflection exercise
 
-Over coffee, reflect on and discuss the following:
+## Ejercicio de reflexión
 
-- What are the different kinds of errors Python will report?
-- Did the code always produce the results you expected? If not, why?
-- Is there something we can do to prevent errors when we write code?
+Durante el café, reflexiona y discute sobre lo siguiente:
+
+- ¿Cuáles son los diferentes tipos de errores que informará Python?
+- ¿El código siempre produjo los resultados esperados? En caso negativo, ¿por qué?
+- ¿Hay algo que podamos hacer para evitar errores cuando escribimos código?
 
 

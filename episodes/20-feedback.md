@@ -1,27 +1,29 @@
 ---
-title: Feedback
+title: Comentarios
 teaching: 0
 exercises: 15
 ---
 
+
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Gather feedback on the class
+- Recopilar comentarios sobre la clase
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How did the class go?
+- ¿Qué tal la clase?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Gather feedback from participants.
+Recoge los comentarios de los participantes.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- We are constantly seeking to improve this course.
+- Intentamos mejorar constantemente este curso.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
