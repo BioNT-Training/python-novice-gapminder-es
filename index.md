@@ -3,29 +3,31 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
-This lesson is an introduction to programming in Python 3 for people with little or no previous
-programming experience. It uses plotting as its motivating example and is designed to be used in
-both [Data Carpentry][dc-lessons] and [Software Carpentry][swc-lessons] workshops.
-This lesson references [JupyterLab][jupyterlab] but can be taught using alternative Python 3 interpreters
-as well (e.g., repl.it, Anaconda).
 
-::::::::::::::::::::::::::::::::::::::::::  prereq
+Esta lección es una introducción a la programación en Python 3 para personas con poca o
+ninguna experiencia previa en programación. Utiliza el ploteo como ejemplo motivador y
+está diseñada para ser utilizada en talleres de [Data Carpentry][dc-lessons] y [Software
+Carpentry][swc-lessons]. Esta lección hace referencia a [JupyterLab][jupyterlab] pero
+también se puede enseñar utilizando intérpretes alternativos de Python 3 (por ejemplo,
+repl.it, Anaconda).
 
-## Prerequisites
+:::::::::::::::::::::::::::::::::::::::::: prereq
 
-1. Learners need to understand what files and directories are,
-  what a working directory is,
-  and how to start a Python interpreter.
+## Requisitos previos
 
-2. Learners must install Python 3 before the class starts.
+1. Los alumnos deben comprender qué son los archivos y directorios, qué es un directorio
+   de trabajo y cómo se inicia un intérprete de Python.
 
-3. Learners must get the gapminder data before class starts:
-  please download and unzip the file
-  [python-novice-gapminder-data.zip](episodes/files/python-novice-gapminder-data.zip).
+2. Los alumnos deben instalar Python 3 antes de comenzar la clase.
 
-Please see [the setup instructions](learners/setup.md)
-for more details.
+3. Los alumnos deben obtener los datos del gapminder antes de que empiece la clase: por
+   favor, descargue y descomprima el archivo
+   [python-novice-gapminder-data.zip](episodes/files/python-novice-gapminder-data.zip).
+
+Consulte [las instrucciones de instalación](learners/setup.md) para obtener más
+información.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 

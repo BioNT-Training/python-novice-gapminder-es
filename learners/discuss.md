@@ -1,7 +1,9 @@
 ---
-title: Discussion
+title: Debate
 ---
 
-FIXME: general discussion and further reading for learners.
+
+FIXME: debate general y lecturas complementarias para los alumnos.
+
 
 
