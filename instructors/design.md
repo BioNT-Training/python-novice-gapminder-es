@@ -282,7 +282,19 @@ I know...
   - Fill in the blanks in this series of examples to get practice accumulating values.
   - Reorder and indent these lines to calculate the cumulative sum of the list values.
 
-### [Looping Over Data Sets](13-looping-data-sets) (13:45)
+### [Conditionals](13-conditionals) (15:00)
+
+- Teaching: 10 min
+  - Correctly write programs that use if and else statements and simple Boolean expressions (without logical operators).
+  - Trace the execution of unnested conditionals and conditionals inside loops.
+- Challenges: 15 min
+  - Trace the execution of this conditional statement.
+  - Fill in the blanks so that this function replaces negative values with zeroes.
+  - Modify this program so that it only processes files with fewer than 50 records.
+  - Modify this program so that it always finds the largest and smallest values in a list
+    no matter what the list's values are.
+
+### [Looping Over Data Sets](14-looping-data-sets) (13:45)
 
 - Teaching: 5 min
   - Be able to read and write globbing expressions that match sets of files.
@@ -293,7 +305,9 @@ I know...
   - Modify this program so that it prints the number of records in the shortest file.
   - Write a program that reads and plots all of the regional data sets.
 
-### [Writing Functions](14-writing-functions) (14:00)
+### [Coffee](15-coffee) (14:45): 15 min
+
+### [Writing Functions](16-writing-functions) (14:00)
 
 - Teaching: 10 min
   - Explain and identify the difference between function definition and function call.
@@ -307,7 +321,7 @@ I know...
   - Why is it sometimes useful to pass arguments by naming the corresponding parameters?
   - Fill in the blanks and turn this short piece of code into a function.
 
-### [Variable Scope](15-scope) (14:25)
+### [Variable Scope](17-scope) (14:25)
 
 - Teaching: 10 min
   - Identify local and global variables.
@@ -317,21 +331,8 @@ I know...
   - Trace the changes to the values in this program,
     being careful to distinguish local from global values.
 
-### [Coffee](16-coffee) (14:45): 15 min
 
-### [Conditionals](17-conditionals) (15:00)
-
-- Teaching: 10 min
-  - Correctly write programs that use if and else statements and simple Boolean expressions (without logical operators).
-  - Trace the execution of unnested conditionals and conditionals inside loops.
-- Challenges: 15 min
-  - Trace the execution of this conditional statement.
-  - Fill in the blanks so that this function replaces negative values with zeroes.
-  - Modify this program so that it only processes files with fewer than 50 records.
-  - Modify this program so that it always finds the largest and smallest values in a list
-    no matter what the list's values are.
-
-### [Programming Style](../episodes/18-style.md) (15:25)
+### [Programming Style](18-style) (15:25)
 
 - Teaching: 15 min
   - How can I make my programs more readable?
@@ -342,14 +343,14 @@ I know...
   - Turn the comments in this program into docstrings.
   - Rewrite this short program to be more readable.
 
-### [Wrap-Up](../episodes/19-wrap.md) (15:55)
+### [Wrap-Up](19-wrap) (15:55)
 
 - Teaching: 20 min
   - Name and locate scientific Python community sites for software, workshops, and help.
 - Challenges: 0 min
   - None.
 
-### [Feedback](../episodes/20-feedback.md) (16:15)
+### [Feedback](20-feedback) (16:15)
 
 - Teaching: 0 min
 - Challenges: 15 min
