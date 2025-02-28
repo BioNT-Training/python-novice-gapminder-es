@@ -1,310 +1,322 @@
 ---
-title: Running and Quitting
+title: Ejecutar y salir
 teaching: 15
 exercises: 0
 ---
 
+
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Launch the JupyterLab server.
-- Create a new Python script.
-- Create a Jupyter notebook.
-- Shutdown the JupyterLab server.
-- Understand the difference between a Python script and a Jupyter notebook.
-- Create Markdown cells in a notebook.
-- Create and run Python cells in a notebook.
+- Inicia el servidor de JupyterLab.
+- Crea un nuevo script Python.
+- Crea un cuaderno Jupyter.
+- Apaga el servidor de JupyterLab.
+- Comprender la diferencia entre un script Python y un cuaderno Jupyter.
+- Crea celdas Markdown en un cuaderno.
+- Crear y ejecutar celdas de Python en un cuaderno.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I run Python programs?
+- ¿Cómo puedo ejecutar programas Python?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-To run Python, we are going to use [Jupyter Notebooks][jupyter] via [JupyterLab][jupyterlab] for the remainder of this workshop. Jupyter notebooks are common in data science and visualization and serve as a convenient common-denominator experience for running Python code interactively where we can easily view and share the results of our Python code.
+Para ejecutar Python, vamos a utilizar [Jupyter Notebooks][jupyter] a través de
+[JupyterLab][jupyterlab] para el resto de este taller. Los cuadernos Jupyter son comunes
+en la ciencia de datos y visualización y sirven como una experiencia conveniente para
+ejecutar código Python de forma interactiva donde podemos ver y compartir fácilmente los
+resultados de nuestro código Python.
 
-There are other ways of editing, managing, and running code. Software developers often use an integrated development environment (IDE) like [PyCharm](https://www.jetbrains.com/pycharm/) or [Visual Studio Code](https://code.visualstudio.com/), or text editors like Vim or Emacs, to create and edit their Python programs. After editing and saving your Python programs you can execute those programs within the IDE itself or directly on the command line. In contrast, Jupyter notebooks let us execute and view the results of our Python code immediately within the notebook.
+Existen otras formas de editar, gestionar y ejecutar código. Los desarrolladores de
+software suelen utilizar un entorno de desarrollo integrado (IDE) como
+[PyCharm](https://www.jetbrains.com/pycharm/) o [Visual Studio
+Code](https://code.visualstudio.com/), o editores de texto como Vim o Emacs, para crear
+y editar sus programas Python. Después de editar y guardar sus programas Python puede
+ejecutar esos programas dentro del propio IDE o directamente en la línea de comandos. En
+cambio, los cuadernos Jupyter nos permiten ejecutar y ver los resultados de nuestro
+código Python inmediatamente dentro del cuaderno.
 
-JupyterLab has several other handy features:
+JupyterLab tiene otras funciones muy útiles:
 
-- You can easily type, edit, and copy and paste blocks of code.
-- Tab complete allows you to easily access the names of things you are using
-  and learn more about them.
-- It allows you to annotate your code with links, different sized text, bullets, etc.
-  to make it more accessible to you and your collaborators.
-- It allows you to display figures next to the code that produces them
-  to tell a complete story of the analysis.
+- Puedes escribir, editar y copiar y pegar fácilmente bloques de código.
+- Pestaña completa te permite acceder fácilmente a los nombres de las cosas que estás
+  utilizando y aprender más sobre ellas.
+- Te permite anotar tu código con enlaces, texto de distinto tamaño, viñetas, etc. para
+  hacerlo más accesible a ti y a tus colaboradores.
+- Le permite mostrar figuras junto al código que las produce para contar una historia
+  completa del análisis.
 
-Each notebook contains one or more cells that contain code, text, or images.
+Cada cuaderno contiene una o más celdas que contienen código, texto o imágenes.
 
-## Getting Started with JupyterLab
+## Introducción a JupyterLab
 
-JupyterLab is an application server with a web user interface from [Project Jupyter][jupyter] that
-enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
-and even custom components in a flexible, integrated, and extensible manner. JupyterLab requires a
-reasonably up-to-date browser (ideally a current version of Chrome, Safari, or Firefox); Internet
-Explorer versions 9 and below are *not* supported.
+JupyterLab es un servidor de aplicaciones con interfaz web de usuario del [Proyecto
+Jupyter][jupyter] que permite trabajar con documentos y actividades como cuadernos
+Jupyter, editores de texto, terminales e incluso componentes personalizados de forma
+flexible, integrada y extensible. JupyterLab requiere un navegador razonablemente
+actualizado (idealmente una versión actual de Chrome, Safari o Firefox); las versiones 9
+e inferiores de Internet Explorer *no* son compatibles.
 
-JupyterLab is included as part of the Anaconda Python distribution. If you have not already
-installed the Anaconda Python distribution, see [the setup instructions](../learners/setup.md)
-for installation instructions.
+JupyterLab se incluye como parte de la distribución Anaconda Python. Si aún no has
+instalado la distribución Anaconda Python, consulta [las instrucciones de
+instalación](../learners/setup.md) para obtener instrucciones de instalación.
 
-In this lesson we will run JupyterLab locally on our own machines so it will not require an internet connection besides
-the initial connection to download and install Anaconda and JupyterLab
+En esta lección ejecutaremos JupyterLab localmente en nuestras propias máquinas, por lo
+que no será necesaria una conexión a Internet aparte de la conexión inicial para
+descargar e instalar Anaconda y JupyterLab
 
-- Start the JupyterLab server on your machine
-- Use a web browser to open a special localhost URL that connects to your JupyterLab server
-- The JupyterLab server does the work and the web browser renders the result
-- Type code into the browser and see the results after your JupyterLab server has finished executing your code
+- Inicia el servidor de JupyterLab en tu máquina
+- Utiliza un navegador web para abrir una URL localhost especial que conecte con tu
+  servidor JupyterLab
+- El servidor de JupyterLab hace el trabajo y el navegador web muestra el resultado
+- Escriba código en el navegador y vea los resultados después de que su servidor
+  JupyterLab haya terminado de ejecutar su código
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::::::::::::::::::::::::::::::::::::::::: callout
 
-## JupyterLab? What about Jupyter notebooks?
+## JupyterLab? ¿Y para los cuadernos Jupyter?
 
-JupyterLab is the [next stage in the evolution of the Jupyter Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
-If you have prior experience working with Jupyter notebooks, then you will have a good idea of what to expect from JupyterLab.
+JupyterLab es la [siguiente etapa en la evolución del Jupyter
+Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
+Si tienes experiencia previa trabajando con cuadernos Jupyter, entonces tendrás una
+buena idea de qué esperar de JupyterLab.
 
-Experienced users of Jupyter notebooks interested in a more detailed discussion of the similarities and differences
-between the JupyterLab and Jupyter notebook user interfaces can find more information in the
-[JupyterLab user interface documentation][jupyterlab-ui].
+Los usuarios experimentados de Jupyter notebooks interesados en una discusión más
+detallada de las similitudes y diferencias entre las interfaces de usuario de JupyterLab
+y Jupyter notebook pueden encontrar más información en la [documentación de la interfaz
+de usuario de JupyterLab][jupyterlab-ui].
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Starting JupyterLab
+## Iniciando JupyterLab
 
-You can start the JupyterLab server through the command line or through an application called
-`Anaconda Navigator`. Anaconda Navigator is included as part of the Anaconda Python distribution.
+Puede iniciar el servidor JupyterLab a través de la línea de comandos o a través de una
+aplicación llamada `Anaconda Navigator`. Anaconda Navigator se incluye como parte de la
+distribución Anaconda Python.
 
-### macOS - Command Line
+### macOS - Línea de comandos
 
-To start the JupyterLab server you will need to access the command line through the Terminal.
-There are two ways to open Terminal on Mac.
+Para iniciar el servidor de JupyterLab necesitarás acceder a la línea de comandos a
+través del Terminal. Hay dos formas de abrir Terminal en Mac.
 
-1. In your Applications folder, open Utilities and double-click on Terminal
-2. Press <kbd>Command</kbd> + <kbd>spacebar</kbd> to launch Spotlight. Type `Terminal` and then
-  double-click the search result or hit <kbd>Enter</kbd>
+1. En la carpeta Aplicaciones, abre Utilidades y haz doble clic en Terminal
+2. Pulsa <kbd>Comando</kbd> + <kbd>barra espaciadora</kbd> para iniciar Spotlight.
+   Escriba `Terminal` y, a continuación, haga doble clic en el resultado de la búsqueda
+   o pulse <kbd>Intro</kbd>
 
-After you have launched Terminal, type the command to launch the JupyterLab server.
+Después de lanzar Terminal, escribe el comando para lanzar el servidor JupyterLab.
 
 ```bash
 $ jupyter lab
 ```
 
-### Windows Users - Command Line
+### Usuarios de Windows - Línea de comandos
 
-To start the JupyterLab server you will need to access the Anaconda Prompt.
+Para iniciar el servidor de JupyterLab necesitarás acceder al Prompt de Anaconda.
 
-Press <kbd>Windows Logo Key</kbd> and search for `Anaconda Prompt`, click the result or press enter.
+Pulsa <kbd>Tecla del logotipo de Windows</kbd> y busca `Anaconda Prompt`, haz clic en el
+resultado o pulsa intro.
 
-After you have launched the Anaconda Prompt, type the command:
+Después de haber lanzado Anaconda Prompt, escriba el comando:
 
 ```bash
 $ jupyter lab
 ```
 
-### Anaconda Navigator
+### Navegador Anaconda
 
-To start a JupyterLab server from Anaconda Navigator you must first [start Anaconda Navigator (click for detailed instructions on macOS, Windows, and Linux)](https://docs.anaconda.com/free/navigator/getting-started/#navigator-starting-navigator). You can search for Anaconda Navigator via Spotlight on macOS (<kbd>Command</kbd> + <kbd>spacebar</kbd>), the Windows search function (<kbd>Windows Logo Key</kbd>) or opening a terminal shell and executing the `anaconda-navigator` executable from the command line.
+Para iniciar un servidor JupyterLab desde Anaconda Navigator primero debes [iniciar
+Anaconda Navigator (haz clic para obtener instrucciones detalladas en macOS, Windows y
+Linux)](https://docs.anaconda.com/free/navigator/getting-started/#navigator-starting-navigator).
+Puedes buscar Anaconda Navigator a través de Spotlight en macOS (<kbd>Comando</kbd> +
+<kbd>barra espaciadora</kbd>), la función de búsqueda de Windows (<kbd>Tecla del
+logotipo de Windows</kbd>) o abriendo un intérprete de comandos de terminal y ejecutando
+el ejecutable `anaconda-navigator` desde la línea de comandos.
 
-After you have launched Anaconda Navigator, click the `Launch` button under JupyterLab. You may need
-to scroll down to find it.
+Después de iniciar el Navegador Anaconda, haz clic en el botón `Launch` debajo de
+JupyterLab. Puede que tengas que desplazarte hacia abajo para encontrarlo.
 
-Here is a screenshot of an Anaconda Navigator page similar to the one that should open on either macOS
-or Windows.
+He aquí una captura de pantalla de una página de Anaconda Navigator similar a la que
+debería abrirse en macOS o Windows.
 
 <p align='center'>
   <img alt="Anaconda Navigator landing page" src="fig/0_anaconda_navigator_landing_page.png" width="750"/>
 </p>
 
-And here is a screenshot of a JupyterLab landing page that should be similar to the one that opens in your
-default web browser after starting the JupyterLab server on either macOS or Windows.
+Y aquí tienes una captura de pantalla de una página de inicio de JupyterLab que debería
+ser similar a la que se abre en tu navegador web predeterminado después de iniciar el
+servidor de JupyterLab en macOS o Windows.
 
 <p align='center'>
   <img alt="JupyterLab landing page" src="fig/0_jupyterlab_landing_page.png" width="750"/>
 </p>
 
-## The JupyterLab Interface
+## La interfaz de JupyterLab
 
-JupyterLab has many features found in traditional integrated development environments (IDEs) but
-is focused on providing flexible building blocks for interactive, exploratory computing.
+JupyterLab tiene muchas características que se encuentran en los entornos de desarrollo
+integrados (IDE) tradicionales, pero se centra en proporcionar bloques de construcción
+flexibles para la computación interactiva y exploratoria.
 
-The [JupyterLab Interface][jupyterlab-ui]
-consists of the Menu Bar, a collapsable Left Side Bar, and the Main Work Area which contains tabs
-of documents and activities.
+La [Interfaz de JupyterLab][jupyterlab-ui] consiste en la Barra de Menú, una Barra
+Lateral Izquierda colapsable, y el Área de Trabajo Principal que contiene pestañas de
+documentos y actividades.
 
-### Menu Bar
+### Barra de menús
 
-The Menu Bar at the top of JupyterLab has the top-level menus that expose various actions
-available in JupyterLab along with their keyboard shortcuts (where applicable). The following
-menus are included by default.
+La Barra de Menús en la parte superior de JupyterLab tiene los menús de nivel superior
+que exponen varias acciones disponibles en JupyterLab junto con sus atajos de teclado
+(donde sea aplicable). Los siguientes menús están incluidos por defecto.
 
-- **File:** Actions related to files and directories such as *New*, *Open*, *Close*, *Save*, etc. The *File* menu also includes the *Shut Down* action used to shutdown the JupyterLab server.
-- **Edit:** Actions related to editing documents and other activities such as *Undo*, *Cut*, *Copy*, *Paste*, etc.
-- **View:** Actions that alter the appearance of JupyterLab.
-- **Run:** Actions for running code in different activities such as notebooks and code consoles (discussed below).
-- **Kernel:** Actions for managing kernels. Kernels in Jupyter will be explained in more detail below.
-- **Tabs:** A list of the open documents and activities in the main work area.
-- **Settings:** Common JupyterLab settings can be configured using this menu. There is also an *Advanced Settings Editor* option in the dropdown menu that provides more fine-grained control of JupyterLab settings and configuration options.
-- **Help:** A list of JupyterLab and kernel help links.
+- **Archivo:** Acciones relacionadas con archivos y directorios como *Nuevo*, *Abrir*,
+  *Cerrar*, *Guardar*, etc. El menú *Archivo* también incluye la acción *Apagar*
+  utilizada para apagar el servidor de JupyterLab.
+- **Edición:** Acciones relacionadas con la edición de documentos y otras actividades
+  como *Deshacer*, *Cortar*, *Copiar*, *Pegar*, etc.
+- **Ver:** Acciones que alteran la apariencia de JupyterLab.
+- **Ejecutar:** Acciones para ejecutar código en diferentes actividades como cuadernos y
+  consolas de código (discutidas más adelante).
+- **Kernel:** Acciones para gestionar kernels. Los kernels en Jupyter se explicarán con
+  más detalle a continuación.
+- **Pestañas:** Una lista de los documentos y actividades abiertos en el área de trabajo
+  principal.
+- **Configuración:** Los ajustes comunes de JupyterLab pueden configurarse usando este
+  menú. También hay una opción *Editor de Ajustes Avanzados* en el menú desplegable que
+  proporciona un control más fino de los ajustes de JupyterLab y las opciones de
+  configuración.
+- **Ayuda:** Una lista de enlaces de ayuda de JupyterLab y del kernel.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::::::::::::::::::::::::::::::::::::::::: callout
 
-## Kernels
+## Núcleos
 
-The JupyterLab [docs](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html)
-define kernels as "separate processes started by the server that runs your code in different programming languages and environments."
-When we open a Jupyter Notebook, that starts a kernel - a process - that is going to run the code.
-In this lesson, we'll be using the Jupyter ipython kernel which lets us run Python 3 code interactively.
+Los [docs] de
+JupyterLab(https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html)
+definen los kernels como "procesos separados iniciados por el servidor que ejecuta tu
+código en diferentes lenguajes y entornos de programación." Cuando abrimos un Jupyter
+Notebook, se inicia un kernel - un proceso - que va a ejecutar el código. En esta
+lección, utilizaremos el kernel ipython de Jupyter que nos permite ejecutar código
+Python 3 de forma interactiva.
 
-Using other Jupyter [kernels for other programming languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) would let us
-write and execute code in other programming languages in the same JupyterLab interface, like R, Java, Julia, Ruby, JavaScript, Fortran,
-etc.
+El uso de otros [kernels para otros lenguajes de programación] de Jupyter
+(https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) nos permitiría escribir y
+ejecutar código en otros lenguajes de programación en la misma interfaz de JupyterLab,
+como R, Java, Julia, Ruby, JavaScript, Fortran, etc.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-A screenshot of the default Menu Bar is provided below.
+A continuación se muestra una captura de pantalla de la Barra de Menús por defecto.
 
 <p align='center'>   <img alt="JupyterLab Menu Bar" src="fig/0_jupyterlab_menu_bar.png" width="750"/>
 </p>
 
-### Left Sidebar
+### Barra lateral izquierda
 
-The left sidebar contains a number of commonly used tabs, such as a file browser (showing the
-contents of the directory where the JupyterLab server was launched), a list of running kernels
-and terminals, the command palette, and a list of open tabs in the main work area. A screenshot of
-the default Left Side Bar is provided below.
+La barra lateral izquierda contiene una serie de pestañas de uso común, como un
+explorador de archivos (que muestra el contenido del directorio en el que se inició el
+servidor JupyterLab), una lista de kernels y terminales en ejecución, la paleta de
+comandos y una lista de pestañas abiertas en el área de trabajo principal. A
+continuación se muestra una captura de pantalla de la barra lateral izquierda por
+defecto.
 
 <p align='center'>   <img alt="JupyterLab Left Side Bar" src="fig/0_jupyterlab_left_side_bar.png" width="250"/>
 </p>
 
-The left sidebar can be collapsed or expanded by selecting "Show Left Sidebar" in the View menu or
-by clicking on the active sidebar tab.
+La barra lateral izquierda puede contraerse o expandirse seleccionando "Mostrar barra
+lateral izquierda" en el menú Ver o haciendo clic en la pestaña de la barra lateral
+activa.
 
-### Main Work Area
+### Área de trabajo principal
 
-The main work area in JupyterLab enables you to arrange documents (notebooks, text files, etc.)
-and other activities (terminals, code consoles, etc.) into panels of tabs that can be resized or
-subdivided. A screenshot of the default Main Work Area is provided below.
+El área de trabajo principal de JupyterLab permite organizar los documentos (cuadernos,
+archivos de texto, etc.) y otras actividades (terminales, consolas de código, etc.) en
+paneles de pestañas que se pueden redimensionar o subdividir. A continuación se muestra
+una captura de pantalla del Área de trabajo principal por defecto.
 
-If you do not see the Launcher tab, click the blue plus sign under the "File" and "Edit" menus and it will appear.
+Si no ves la pestaña Lanzador, haz clic en el signo más azul bajo los menús "Archivo" y
+"Editar" y aparecerá.
 
 <p align='center'>   <img alt="JupyterLab Main Work Area" src="fig/0_jupyterlab_main_work_area.png" width="750"/>
 </p>
 
-Drag a tab to the center of a tab panel to move the tab to the panel. Subdivide a tab panel by
-dragging a tab to the left, right, top, or bottom of the panel. The work area has a single current
-activity. The tab for the current activity is marked with a colored top border (blue by default).
+Arrastre una pestaña al centro de un panel de pestañas para mover la pestaña al panel.
+Subdividir un panel de pestañas arrastrando una pestaña a la izquierda, derecha, parte
+superior o inferior del panel. El área de trabajo tiene una única actividad actual. La
+pestaña de la actividad actual está marcada con un borde superior de color (azul por
+defecto).
 
-## Creating a Python script
+## Creación de un script Python
 
-- To start writing a new Python program click the Text File icon under the *Other* header in the Launcher tab of the Main Work Area.
-  - You can also create a new plain text file by selecting the *New -> Text File* from the *File* menu in the Menu Bar.
-- To convert this plain text file to a Python program, select the *Save File As* action from the *File* menu in the Menu Bar and give your new text file a name that ends with the `.py` extension.
-  - The `.py` extension lets everyone (including the operating system) know that this text file is a Python program.
-  - This is convention, not a requirement.
+- Para empezar a escribir un nuevo programa Python haz clic en el icono Archivo de Texto
+  bajo la cabecera *Otros* en la pestaña Lanzador del Área de Trabajo Principal.
+  - También puede crear un nuevo archivo de texto sin formato seleccionando *Nuevo ->
+    Archivo de texto* en el menú *Archivo* de la barra de menús.
+- Para convertir este archivo de texto plano en un programa Python, selecciona la acción
+  *Guardar Archivo Como* del menú *Archivo* en la Barra de Menú y dale a tu nuevo
+  archivo de texto un nombre que termine con la extensión `.py`.
+  - La extensión `.py` permite a todo el mundo (incluido el sistema operativo) saber que
+    este archivo de texto es un programa Python.
+  - Esto es una convención, no un requisito.
 
-## Creating a Jupyter Notebook
+## Crear un cuaderno Jupyter
 
-To open a new notebook click the Python 3 icon under the *Notebook* header in the Launcher tab in
-the main work area. You can also create a new notebook by selecting *New -> Notebook* from the *File* menu in the Menu Bar.
+Para abrir un nuevo cuaderno haz clic en el icono Python 3 bajo la cabecera *Cuaderno*
+en la pestaña Lanzador del área de trabajo principal. También puedes crear un nuevo
+cuaderno seleccionando *Nuevo -> Cuaderno* en el menú *Archivo* de la Barra de Menús.
 
-Additional notes on Jupyter notebooks.
+Notas adicionales sobre los cuadernos Jupyter.
 
-- Notebook files have the extension `.ipynb` to distinguish them from plain-text Python programs.
-- Notebooks can be exported as Python scripts that can be run from the command line.
+- Los archivos de cuaderno tienen la extensión `.ipynb` para distinguirlos de los
+  programas Python de texto plano.
+- Los cuadernos pueden exportarse como scripts de Python que pueden ejecutarse desde la
+  línea de comandos.
 
-Below is a screenshot of a Jupyter notebook running inside JupyterLab. If you are interested in
-more details, then see the [official notebook documentation][jupyterlab-notebook-docs].
+A continuación se muestra una captura de pantalla de un cuaderno Jupyter ejecutándose
+dentro de JupyterLab. Si estás interesado en más detalles, consulta la [documentación
+oficial del cuaderno][jupyterlab-notebook-docs].
 
 <p align='center'>   <img alt="Example Jupyter Notebook" src="fig/0_jupyterlab_notebook_screenshot.png" width="750"/>
 </p>
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::::::::::::::::::::::::::::::::::::::::: callout
 
-## How It's Stored
+## Cómo se almacena
 
-- The notebook file is stored in a format called JSON.
-- Just like a webpage, what's saved looks different from what you see in your browser.
-- But this format allows Jupyter to mix source code, text, and images, all in one file.
-  
+- El archivo del cuaderno se almacena en un formato llamado JSON.
+- Al igual que una página web, lo que se guarda tiene un aspecto diferente de lo que se
+  ve en el navegador.
+- Pero este formato permite a Jupyter mezclar código fuente, texto e imágenes, todo en
+  un mismo archivo.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Arranging Documents into Panels of Tabs
+## Organizar documentos en paneles de pestañas
 
-In the JupyterLab Main Work Area you can arrange documents into panels of tabs. Here is an
-example from the [official documentation][jupyterlab].
+En el área de trabajo principal de JupyterLab puedes organizar los documentos en paneles
+de pestañas. Aquí tienes un ejemplo de la [documentación oficial][jupyterlab].
 
 <p align='center'>   <img alt="Multi-panel JupyterLab" src="fig/0_multipanel_jupyterlab_screenshot.png" width="750"/>
 </p>
 
-First, create a text file, Python console, and terminal window and arrange them into three
-panels in the main work area. Next, create a notebook, terminal window, and text file and
-arrange them into three panels in the main work area. Finally, create your own combination of
-panels and tabs. What combination of panels and tabs do you think will be most useful for your
-workflow?
+En primer lugar, cree un archivo de texto, una consola Python y una ventana de terminal
+y dispóngalos en tres paneles en el área de trabajo principal. A continuación, cree un
+cuaderno, una ventana de terminal y un archivo de texto y dispóngalos en tres paneles en
+el área de trabajo principal. Por último, crea tu propia combinación de paneles y
+pestañas. ¿Qué combinación de paneles y pestañas crees que será más útil para tu flujo
+de trabajo?
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-After creating the necessary tabs, you can drag one of the tabs to the center of a panel to
-move the tab to the panel; next you can subdivide a tab panel by dragging a tab to the left,
-right, top, or bottom of the panel.
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Code vs. Text
-
-Jupyter mixes code and text in different types of blocks, called cells. We often use the term
-"code" to mean "the source code of software written in a language such as Python".
-A "code cell" in a Notebook is a cell that contains software;
-a "text cell" is one that contains ordinary prose written for human beings.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## The Notebook has Command and Edit modes.
-
-- If you press <kbd>Esc</kbd> and <kbd>Return</kbd> alternately, the outer border of your code cell will change from gray to blue.
-- These are the **Command** (gray) and **Edit** (blue) modes of your notebook.
-- Command mode allows you to edit notebook-level features, and Edit mode changes the content of cells.
-- When in Command mode (esc/gray),
-  - The <kbd>b</kbd> key will make a new cell below the currently selected cell.
-  - The <kbd>a</kbd> key will make one above.
-  - The <kbd>x</kbd> key will delete the current cell.
-  - The <kbd>z</kbd> key will undo your last cell operation (which could be a deletion, creation, etc).
-- All actions can be done using the menus, but there are lots of keyboard shortcuts to speed things up.
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Command Vs. Edit
-
-In the Jupyter notebook page are you currently in Command or Edit mode?  
-Switch between the modes.
-Use the shortcuts to generate a new cell.
-Use the shortcuts to delete a cell.
-Use the shortcuts to undo the last cell operation you performed.
-
-:::::::::::::::  solution
-
-## Solution
-
-Command mode has a grey border and Edit mode has a blue border.
-Use <kbd>Esc</kbd> and <kbd>Return</kbd> to switch between modes.
-You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>b</kbd> or <kbd>a</kbd>.
-You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>x</kbd>.
-You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>z</kbd>.
+Después de crear las pestañas necesarias, puedes arrastrar una de las pestañas al centro
+de un panel para mover la pestaña al panel; después puedes subdividir un panel de
+pestañas arrastrando una pestaña a la izquierda, derecha, parte superior o inferior del
+panel.
 
 
 
@@ -312,52 +324,108 @@ You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Typ
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Use the keyboard and mouse to select and edit cells.
+::::::::::::::::::::::::::::::::::::::::: callout
 
-- Pressing the <kbd>Return</kbd> key turns the border blue and engages Edit mode, which allows
-  you to type within the cell.
-- Because we want to be able to write many lines of code in a single cell,
-  pressing the <kbd>Return</kbd> key when in Edit mode (blue) moves the cursor to the next line
-  in the cell just like in a text editor.
-- We need some other way to tell the Notebook we want to run what's in the cell.
-- Pressing <kbd>Shift</kbd>\+<kbd>Return</kbd> together will execute the contents of the cell.
-- Notice that the <kbd>Return</kbd> and <kbd>Shift</kbd> keys on the right of the keyboard are
-  right next to each other.
+## Código vs. Texto
 
-### The Notebook will turn Markdown into pretty-printed documentation.
+Jupyter mezcla código y texto en diferentes tipos de bloques, llamados celdas. A menudo
+utilizamos el término "código" para referirnos al "código fuente del software escrito en
+un lenguaje como Python". Una "celda de código" en un Cuaderno es una celda que contiene
+software; una "celda de texto" es una que contiene prosa ordinaria escrita para seres
+humanos.
 
-- Notebooks can also render [Markdown][markdown].
-  - A simple plain-text format for writing lists, links,
-    and other things that might go into a web page.
-  - Equivalently, a subset of HTML that looks like what you'd send in an old-fashioned email.
-- Turn the current cell into a Markdown cell by entering the Command mode (<kbd>Esc</kbd>/gray)
-  and press the <kbd>M</kbd> key.
-- `In [ ]:` will disappear to show it is no longer a code cell and you will be able to write in
-  Markdown.
-- Turn the current cell into a Code cell by entering the Command mode (<kbd>Esc</kbd>/gray) and
-  press the <kbd>y</kbd> key.
 
-### Markdown does most of what HTML does.
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Table: Showing some markdown syntax and its rendered output.
+## El Cuaderno dispone de los modos Comando y Edición.
+
+- Si pulsa <kbd>Esc</kbd> y <kbd>Return</kbd> alternativamente, el borde exterior de su
+  celda de código cambiará de gris a azul.
+- Estos son los modos **Comando** (gris) y **Edición** (azul) de tu bloc de notas.
+- El modo Comando te permite editar las características del cuaderno, y el modo Edición
+  cambia el contenido de las celdas.
+- En modo Comando (esc/gris),
+  - La tecla <kbd>b</kbd> creará una nueva celda debajo de la celda seleccionada
+    actualmente.
+  - La tecla <kbd>a</kbd> hará una arriba.
+  - La tecla <kbd>x</kbd> borrará la celda actual.
+  - La tecla <kbd>z</kbd> deshará su última operación de celda (que podría ser una
+    eliminación, creación, etc.).
+- Todas las acciones se pueden realizar utilizando los menús, pero hay muchos atajos de
+  teclado para agilizar las cosas.
+
+::::::::::::::::::::::::::::::::::::::: challenge
+
+## Comando Vs. Edición
+
+En la página del cuaderno Jupyter, ¿estás actualmente en modo Comando o Edición?  
+Cambia entre los modos. Utiliza los atajos para generar una nueva celda. Utiliza los
+atajos para borrar una celda. Utiliza los atajos para deshacer la última operación de
+celda realizada.
+
+::::::::::::::: solution
+
+## Solución
+
+El modo Comando tiene un borde gris y el modo Edición tiene un borde azul. Utilice
+<kbd>Esc</kbd> y <kbd>Return</kbd> para cambiar de un modo a otro. Necesitas estar en
+modo Comando (Pulsa <kbd>Esc</kbd> si tu celda es azul). Escribe <kbd>b</kbd> o
+<kbd>a</kbd>. Tienes que estar en modo Comando (Pulsa <kbd>Esc</kbd> si tu celda es
+azul). Escriba <kbd>x</kbd>. Tienes que estar en modo Comando (Pulsa <kbd>Esc</kbd> si
+tu celda es azul). Escriba <kbd>z</kbd>.
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+### Utiliza el teclado y el ratón para seleccionar y editar celdas.
+
+- Al pulsar la tecla <kbd>Return</kbd>, el borde se vuelve azul y se activa el modo
+  Edición, que permite escribir dentro de la celda.
+- Como queremos poder escribir muchas líneas de código en una sola celda, al pulsar la
+  tecla <kbd>Retorno</kbd> cuando se está en modo Edición (azul) se mueve el cursor a la
+  siguiente línea de la celda, igual que en un editor de texto.
+- Necesitamos alguna otra forma de decirle al Cuaderno que queremos ejecutar lo que hay
+  en la celda.
+- Al pulsar conjuntamente <kbd>Mayús</kbd>\+<kbd>Retorno</kbd> se ejecutará el contenido
+  de la celda.
+- Observa que las teclas <kbd>Return</kbd> y <kbd>Shift</kbd> de la derecha del teclado
+  están una al lado de la otra.
+
+### El Cuaderno convertirá Markdown en documentación con una bonita impresión.
+
+- Los cuadernos también pueden renderizar [Markdown][markdown].
+  - Un sencillo formato de texto plano para escribir listas, enlaces y otras cosas que
+    podrían ir en una página web.
+  - Equivalentemente, un subconjunto de HTML que se parece a lo que enviarías en un
+    correo electrónico a la antigua usanza.
+- Convierte la celda actual en una celda Markdown entrando en el modo Comando
+  (<kbd>Esc</kbd>/gris) y pulsa la tecla <kbd>M</kbd>.
+- `In [ ]:` desaparecerá para mostrar que ya no es una celda de código y podrás escribir
+  en Markdown.
+- Convierta la celda actual en una celda de Código entrando en el modo Comando
+  (<kbd>Esc</kbd>/gris) y pulse la tecla <kbd>y</kbd>.
+
+### Markdown hace la mayor parte de lo que hace HTML.
+
+Tabla: Mostrando algo de sintaxis markdown y su salida renderizada.
 
 +---------------------------------------+------------------------------------------------+
 | Markdown code                         | Rendered output                                |
 +=======================================+================================================+
-+---------------------------------------+------------------------------------------------+
 | ```                                   | <p></p>                                        |
 | *   Use asterisks                     | -   Use asterisks                              |
 | *   to create                         | -   to create                                  |
 | *   bullet lists.                     | -   bullet lists.                              |
 | ```                                   |                                                |
 +---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
 | ```                                   | <p></p>                                        |
 | 1.   Use numbers                      | 1.   Use numbers                               |
 | 1.   to create                        | 2.   to create                                 |
 | 1.   bullet lists.                    | 3.   numbered lists.                           |
 | ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
 +---------------------------------------+------------------------------------------------+
 | ```                                   | <p></p>                                        |
 | *  You can use indents                | - You can use indents                          |
@@ -368,16 +436,13 @@ Table: Showing some markdown syntax and its rendered output.
 |   1. types                            |   2. types                                     |
 | ```                                   |                                                |
 +---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
 | ```                                   | <p></p>                                        |
 | # A Level-1 Heading                   | ## A Level-1 Heading                           |
 | ```                                   |                                                |
 +---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
 | ```                                   | <p></p>                                        |
 | ## A Level-2 Heading (etc.)           | ### A Level-2 Heading (etc.)                   |
 | ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
 +---------------------------------------+------------------------------------------------+
 | ```                                   | <p></p>                                        |
 | Line breaks                           | Line breaks                                    |
@@ -386,7 +451,6 @@ Table: Showing some markdown syntax and its rendered output.
 | But blank lines                       | But blank lines                                |
 | create new paragraphs.                | create new paragraphs.                         |
 | ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
 +---------------------------------------+------------------------------------------------+
 | ```                                   | <p></p>                                        |
 | [Links](http://software-carpentry.org)| [Links](https://software-carpentry.org)        |
@@ -398,26 +462,27 @@ Table: Showing some markdown syntax and its rendered output.
 +---------------------------------------+------------------------------------------------+
 
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Creating Lists in Markdown
+## Creación de listas en Markdown
 
-Create a nested list in a Markdown cell in a notebook that looks like this:
+Crea una lista anidada en una celda Markdown de un cuaderno con el siguiente aspecto:
 
-1. Get funding.
-2. Do work.
-  - Design experiment.
-  - Collect data.
-  - Analyze.
-3. Write up.
-4. Publish.
+1. Obtener financiación.
+2. Haz el trabajo.
+  - Experimento de diseño.
+  - Recopilar datos.
+  - Analizar.
+3. Escribe.
+4. Publicar.
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-This challenge integrates both the numbered list and bullet list.
-Note that the bullet list is indented 2 spaces so that it is inline with the items of the numbered list.
+Este reto integra tanto la lista numerada como la lista con viñetas. Observe que la
+lista con viñetas está sangrada 2 espacios para que esté en línea con los elementos de
+la lista numerada.
 
 ```
 1.  Get funding.
@@ -433,24 +498,23 @@ Note that the bullet list is indented 2 spaces so that it is inline with the ite
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## More Math
+## Más matemáticas
 
-What is displayed when a Python cell in a notebook
-that contains several calculations is executed?
-For example, what happens when this cell is executed?
+¿Qué se muestra cuando se ejecuta una celda Python en un cuaderno que contiene varios
+cálculos? Por ejemplo, ¿qué ocurre cuando se ejecuta esta celda?
 
 ```python
 7 * 3
 2 + 1
 ```
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-Python returns the output of the last calculation.
+Python devuelve la salida del último cálculo.
 
 ```python
 3
@@ -460,32 +524,30 @@ Python returns the output of the last calculation.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Change an Existing Cell from Code to Markdown
+## Cambiar una celda existente de código a Markdown
 
-What happens if you write some Python in a code cell
-and then you switch it to a Markdown cell?
-For example,
-put the following in a code cell:
+¿Qué ocurre si escribes algo de Python en una celda de código y luego lo cambias a una
+celda de Markdown? Por ejemplo, pon lo siguiente en una celda de código:
 
 ```python
 x = 6 * 7 + 12
 print(x)
 ```
 
-And then run it with <kbd>Shift</kbd>\+<kbd>Return</kbd> to be sure that it works as a code cell.
-Now go back to the cell and use <kbd>Esc</kbd> then <kbd>m</kbd> to switch the cell to Markdown
-and "run" it with <kbd>Shift</kbd>\+<kbd>Return</kbd>.
-What happened and how might this be useful?
+Y luego ejecútalo con <kbd>Shift</kbd>\+<kbd>Return</kbd> para asegurarte de que
+funciona como una celda de código. Ahora vuelve a la celda y usa <kbd>Esc</kbd> y luego
+<kbd>m</kbd> para cambiar la celda a Markdown y "ejecútala" con
+<kbd>Shift</kbd>\+<kbd>Return</kbd>. ¿Qué ha pasado y en qué puede ser útil?
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-The Python code gets treated like Markdown text.
-The lines appear as if they are part of one contiguous paragraph.
-This could be useful to temporarily turn on and off cells in notebooks that get used for multiple purposes.
+El código Python se trata como texto Markdown. Las líneas aparecen como si formaran
+parte de un párrafo contiguo. Esto podría ser útil para activar y desactivar
+temporalmente celdas en cuadernos que se utilizan para múltiples propósitos.
 
 ```python
 x = 6 * 7 + 12 print(x)
@@ -495,33 +557,32 @@ x = 6 * 7 + 12 print(x)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Equations
+## Ecuaciones
 
-Standard Markdown (such as we're using for these notes) won't render equations,
-but the Notebook will.
-Create a new Markdown cell
-and enter the following:
+Markdown estándar (como el que estamos utilizando para estas notas) no mostrará
+ecuaciones, pero Notebook sí. Crea una nueva celda Markdown e introduce lo siguiente:
 
 ```
 $\sum_{i=1}^{N} 2^{-i} \approx 1$
 ```
 
-(It's probably easier to copy and paste.)
-What does it display?
-What do you think the underscore, `_`, circumflex, `^`, and dollar sign, `$`, do?
+(Probablemente sea más fácil copiar y pegar.) ¿Qué muestra? ¿Qué crees que hacen el
+guión bajo, `_`, el circunflejo, `^`, y el símbolo del dólar, `$`?
 
-:::::::::::::::  solution
+::::::::::::::: solution
 
-## Solution
+## Solución
 
-The notebook shows the equation as it would be rendered from LaTeX equation syntax.
-The dollar sign, `$`, is used to tell Markdown that the text in between is a LaTeX equation.
-If you're not familiar with LaTeX,  underscore, `_`, is used for subscripts and circumflex, `^`, is used for superscripts.
-A pair of curly braces, `{` and `}`, is used to group text together so that the statement `i=1` becomes the subscript and `N` becomes the superscript.
-Similarly, `-i` is in curly braces to make the whole statement the superscript for `2`.
-`\sum` and `\approx` are LaTeX commands for "sum over" and "approximate" symbols.
+El cuaderno muestra la ecuación tal y como se representaría a partir de la sintaxis de
+ecuaciones de LaTeX. El signo del dólar, `$`, se utiliza para indicar a Markdown que el
+texto intermedio es una ecuación LaTeX. Si no está familiarizado con LaTeX, el guión
+bajo, `_`, se utiliza para los subíndices y el circunflejo, `^`, para los superíndices.
+Un par de llaves, `{` y `}`, se utilizan para agrupar texto de forma que la expresión
+`i=1` se convierta en subíndice y `N` en superíndice. Del mismo modo, `-i` está entre
+llaves para que toda la expresión sea el superíndice de `2`.`\sum` y `\approx` son
+comandos LaTeX para los símbolos "suma sobre" y "aproxima".
 
 
 
@@ -529,20 +590,24 @@ Similarly, `-i` is in curly braces to make the whole statement the superscript f
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Closing JupyterLab
+## Cerrar JupyterLab
 
-- From the Menu Bar select the "File" menu and then choose "Shut Down" at the bottom of the dropdown menu. You will be prompted to confirm that you wish to shutdown the JupyterLab server (don't forget to save your work!). Click "Shut Down" to shutdown the JupyterLab server.
-- To restart the JupyterLab server you will need to re-run the following command from a shell.
+- En la barra de menús, seleccione el menú "Archivo" y, a continuación, elija "Apagar"
+  en la parte inferior del menú desplegable. Se le pedirá que confirme que desea apagar
+  el servidor JupyterLab (¡no olvide guardar su trabajo!). Haga clic en "Shut Down" para
+  apagar el servidor JupyterLab.
+- Para reiniciar el servidor de JupyterLab tendrás que volver a ejecutar el siguiente
+  comando desde un intérprete de comandos.
 
 ```
 $ jupyter lab
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: challenge
 
-## Closing JupyterLab
+## Cerrar JupyterLab
 
-Practice closing and restarting the JupyterLab server.
+Practica cerrando y reiniciando el servidor de JupyterLab.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -551,20 +616,22 @@ Practice closing and restarting the JupyterLab server.
 
 [jupyterlab]: https://jupyterlab.readthedocs.io/en/stable/
 [jupyterlab-ui]: https://jupyterlab.readthedocs.io/en/stable/user/interface.html
-[jupyterlab-notebook-docs]: https://jupyterlab.readthedocs.io/en/stable/user/notebook.html
+[jupyterlab-notebook-docs]:
+https://jupyterlab.readthedocs.io/en/stable/user/notebook.html
 [markdown]: https://en.wikipedia.org/wiki/Markdown
 [data_carpentry]: https://datacarpentry.org
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Python scripts are plain text files.
-- Use the Jupyter Notebook for editing and running Python.
-- The Notebook has Command and Edit modes.
-- Use the keyboard and mouse to select and edit cells.
-- The Notebook will turn Markdown into pretty-printed documentation.
-- Markdown does most of what HTML does.
+- Los scripts de Python son archivos de texto sin formato.
+- Utiliza el Jupyter Notebook para editar y ejecutar Python.
+- El Cuaderno dispone de los modos Comando y Edición.
+- Utilizar el teclado y el ratón para seleccionar y editar celdas.
+- El Cuaderno convertirá Markdown en documentación con una bonita impresión.
+- Markdown hace la mayor parte de lo que hace HTML.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
