@@ -390,8 +390,8 @@ your_home_directory
 
 Necesitamos especificar la ruta al fichero de interés en la llamada a `pd.read_csv`.
 Primero tenemos que "saltar" fuera de la carpeta `thesis` utilizando '../' y luego a la
-carpeta `field_data` utilizando `data_campo/'. A continuación, podemos especificar el
-nombre de archivo `microbes.csv. El resultado es el siguiente:
+carpeta `field_data` utilizando `data_campo/`. A continuación, podemos especificar el
+nombre de archivo `microbes.csv`. El resultado es el siguiente:
 
 ```python
 data_microbes = pd.read_csv('../field_data/microbes.csv')
