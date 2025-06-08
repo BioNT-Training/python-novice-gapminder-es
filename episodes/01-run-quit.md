@@ -25,7 +25,7 @@ exercises: 0
 
 Para ejecutar Python, vamos a utilizar [Jupyter Notebooks][jupyter] a través de
 [JupyterLab][jupyterlab] para el resto de este taller. Los cuadernos Jupyter son comunes
-en la ciencia de datos y visualización y sirven como una experiencia conveniente para
+en la ciencia de datos y visualización, y sirven como una experiencia conveniente para
 ejecutar código Python de forma interactiva donde podemos ver y compartir fácilmente los
 resultados de nuestro código Python.
 
@@ -41,11 +41,11 @@ código Python inmediatamente dentro del cuaderno.
 JupyterLab tiene otras funciones muy útiles:
 
 - Puedes escribir, editar y copiar y pegar fácilmente bloques de código.
-- Pestaña completa te permite acceder fácilmente a los nombres de las cosas que estás
+- En pestaña completa te permite acceder fácilmente a los nombres de las cosas que estás
   utilizando y aprender más sobre ellas.
 - Te permite anotar tu código con enlaces, texto de distinto tamaño, viñetas, etc. para
   hacerlo más accesible a ti y a tus colaboradores.
-- Le permite mostrar figuras junto al código que las produce para contar una historia
+- Te permite mostrar figuras junto al código que las produce para contar una historia
   completa del análisis.
 
 Cada cuaderno contiene una o más celdas que contienen código, texto o imágenes.
@@ -76,7 +76,7 @@ descargar e instalar Anaconda y JupyterLab
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## JupyterLab? ¿Y para los cuadernos Jupyter?
+## ¿JupyterLab? ¿Y para los cuadernos Jupyter?
 
 JupyterLab es la [siguiente etapa en la evolución del Jupyter
 Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
@@ -235,7 +235,7 @@ archivos de texto, etc.) y otras actividades (terminales, consolas de código, e
 paneles de pestañas que se pueden redimensionar o subdividir. A continuación se muestra
 una captura de pantalla del Área de trabajo principal por defecto.
 
-Si no ves la pestaña Lanzador, haz clic en el signo más azul bajo los menús "Archivo" y
+Si no ves la pestaña Launcher, haz clic en el signo más azul bajo los menús "Archivo" y
 "Editar" y aparecerá.
 
 <p align='center'>   <img alt="JupyterLab Main Work Area" src="fig/0_jupyterlab_main_work_area.png" width="750"/>
@@ -250,11 +250,11 @@ defecto).
 ## Creación de un script Python
 
 - Para empezar a escribir un nuevo programa Python haz clic en el icono Archivo de Texto
-  bajo la cabecera *Otros* en la pestaña Lanzador del Área de Trabajo Principal.
-  - También puede crear un nuevo archivo de texto sin formato seleccionando *Nuevo ->
-    Archivo de texto* en el menú *Archivo* de la barra de menús.
+  bajo la cabecera *Others* en la pestaña Lanzador del Área de Trabajo Principal.
+  - También puede crear un nuevo archivo de texto sin formato seleccionando *New ->
+    Textfile* en el menú *File* de la barra de menús.
 - Para convertir este archivo de texto plano en un programa Python, selecciona la acción
-  *Guardar Archivo Como* del menú *Archivo* en la Barra de Menú y dale a tu nuevo
+  *Save file as* del menú *File* en la Barra de Menú y dale a tu nuevo
   archivo de texto un nombre que termine con la extensión `.py`.
   - La extensión `.py` permite a todo el mundo (incluido el sistema operativo) saber que
     este archivo de texto es un programa Python.
@@ -262,9 +262,9 @@ defecto).
 
 ## Crear un cuaderno Jupyter
 
-Para abrir un nuevo cuaderno haz clic en el icono Python 3 bajo la cabecera *Cuaderno*
+Para abrir un nuevo cuaderno haz clic en el icono Python 3 bajo la cabecera *Notebook*
 en la pestaña Lanzador del área de trabajo principal. También puedes crear un nuevo
-cuaderno seleccionando *Nuevo -> Cuaderno* en el menú *Archivo* de la Barra de Menús.
+cuaderno seleccionando *New -> Notebook* en el menú *File* de la Barra de Menús.
 
 Notas adicionales sobre los cuadernos Jupyter.
 
@@ -341,7 +341,7 @@ humanos.
 
 - Si pulsa <kbd>Esc</kbd> y <kbd>Return</kbd> alternativamente, el borde exterior de su
   celda de código cambiará de gris a azul.
-- Estos son los modos **Comando** (gris) y **Edición** (azul) de tu bloc de notas.
+- Estos son los modos **Command/Comando** (gris) y **Edit/Edición** (azul) de tu bloc de notas.
 - El modo Comando te permite editar las características del cuaderno, y el modo Edición
   cambia el contenido de las celdas.
 - En modo Comando (esc/gris),
@@ -387,7 +387,7 @@ tu celda es azul). Escriba <kbd>z</kbd>.
 - Como queremos poder escribir muchas líneas de código en una sola celda, al pulsar la
   tecla <kbd>Retorno</kbd> cuando se está en modo Edición (azul) se mueve el cursor a la
   siguiente línea de la celda, igual que en un editor de texto.
-- Necesitamos alguna otra forma de decirle al Cuaderno que queremos ejecutar lo que hay
+- Necesitamos alguna otra forma de decirle al Notebook que queremos ejecutar lo que hay
   en la celda.
 - Al pulsar conjuntamente <kbd>Mayús</kbd>\+<kbd>Retorno</kbd> se ejecutará el contenido
   de la celda.
@@ -592,7 +592,7 @@ comandos LaTeX para los símbolos "suma sobre" y "aproxima".
 
 ## Cerrar JupyterLab
 
-- En la barra de menús, seleccione el menú "Archivo" y, a continuación, elija "Apagar"
+- En la barra de menús, seleccione el menú "File" y, a continuación, elija "Shut down"
   en la parte inferior del menú desplegable. Se le pedirá que confirme que desea apagar
   el servidor JupyterLab (¡no olvide guardar su trabajo!). Haga clic en "Shut Down" para
   apagar el servidor JupyterLab.
@@ -626,7 +626,7 @@ https://jupyterlab.readthedocs.io/en/stable/user/notebook.html
 
 - Los scripts de Python son archivos de texto sin formato.
 - Utiliza el Jupyter Notebook para editar y ejecutar Python.
-- El Cuaderno dispone de los modos Comando y Edición.
+- El Notebook dispone de los modos Command y Edition.
 - Utilizar el teclado y el ratón para seleccionar y editar celdas.
 - El Cuaderno convertirá Markdown en documentación con una bonita impresión.
 - Markdown hace la mayor parte de lo que hace HTML.
