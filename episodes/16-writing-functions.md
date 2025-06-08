@@ -398,13 +398,13 @@ y éste imprimirá una etiqueta.
 import random
 for i in range(10):
 
-    # simulating the mass of a chicken egg
-    # the (random) mass will be 70 +/- 20 grams
+    # simulando la masa de un huevo de gallina
+    # la masa (aleatoria) será de  70 +/- 20 gramos
     mass = 70 + 20.0 * (2.0 * random.random() - 1.0)
 
     print(mass)
 
-    # egg sizing machinery prints a label
+    # la maquinaria de los huevos de gallina imprime una etiqueta
     if mass >= 85:
         print("jumbo")
     elif mass >= 70:
@@ -420,12 +420,12 @@ evitar repetirlo, podríamos plegarlo en una función, `get_egg_label()`. Revisa
 programa para usar la función tendríamos esto:
 
 ```python
-# revised version
+# versíón revisada
 import random
 for i in range(10):
 
-    # simulating the mass of a chicken egg
-    # the (random) mass will be 70 +/- 20 grams
+    # simulando la masa de un huevo de gallina
+    # la masa (aleatoria) será de  70 +/- 20 gramos
     mass = 70 + 20.0 * (2.0 * random.random() - 1.0)
 
     print(mass, get_egg_label(mass))
@@ -447,7 +447,7 @@ for i in range(10):
 
 ```python
 def get_egg_label(mass):
-    # egg sizing machinery prints a label
+   # la maquinaria de los huevos de gallina imprime una etiqueta
     egg_label = "Unlabelled"
     if mass >= 90:
         egg_label = "warning: egg might be dirty"
