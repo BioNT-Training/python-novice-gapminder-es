@@ -234,10 +234,10 @@ He aquí una solución.
 ```python
 def string_machine(input_string, iterations):
     """
-    Takes input_string and generates a new string with -'s and *'s
-    corresponding to characters that have identical adjacent characters
-    or not, respectively.  Iterates through this procedure with the resultant
-    strings for the supplied number of iterations.
+    Toma una cadena de entrada (input_string) y genera una nueva cadena con '-' y '*'
+    según si los caracteres tienen o no caracteres adyacentes idénticos.
+    Itera este procedimiento con las cadenas resultantes durante el número de
+    iteraciones especificado.
     """
     print(input_string)
     input_string_length = len(input_string)

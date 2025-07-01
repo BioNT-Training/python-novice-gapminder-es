@@ -137,13 +137,13 @@ round(3.712, 1)
   doble subrayado.
 
 ```python
-my_string = 'Hello world!'  # creation of a string object 
+my_string = 'Hello world!'  # creación de un string 
 
-print(len(my_string))       # the len function takes a string as an argument and returns the length of the string
+print(len(my_string))       # la función len toma un string y devuelve la longitud del string
 
-print(my_string.swapcase()) # calling the swapcase method on the my_string object
+print(my_string.swapcase()) # llamada al método swapcase de mi objeto my_string
 
-print(my_string.__len__())  # calling the internal __len__ method on the my_string object, used by len(my_string)
+print(my_string.__len__())  # llamando al método interno __len__ en el objeto my_string, usado por len(my_string)
 
 ```
 
@@ -156,10 +156,10 @@ hELLO WORLD!
 - Incluso puede verlos encadenados. Funcionan de izquierda a derecha.
 
 ```python
-print(my_string.isupper())          # Not all the letters are uppercase
-print(my_string.upper())            # This capitalizes all the letters
+print(my_string.isupper())          # no todas las letras son mayúsculas
+print(my_string.upper())            # esto lo convierte todo a mayúsculas
 
-print(my_string.upper().isupper())  # Now all the letters are uppercase
+print(my_string.upper().isupper())  # ahora son todo mayúsculas
 ```
 
 ```output
@@ -200,7 +200,7 @@ round(number, ndigits=None)
 - Ni siquiera intentará ejecutar el programa si no puede ser analizado.
 
 ```python
-# Forgot to close the quote marks around the string.
+# Olvidamos cerrar la comilla
 name = 'Feng
 ```
 

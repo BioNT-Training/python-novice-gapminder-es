@@ -234,7 +234,7 @@ print(type(3.4))
 
 ## Solución
 
-Es un flotador: los enteros se convierten automáticamente en flotadores cuando es
+Es un float: los enteros se convierten automáticamente en floats cuando es
 necesario.
 
 ```python

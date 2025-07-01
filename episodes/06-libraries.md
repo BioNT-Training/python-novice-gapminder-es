@@ -1,5 +1,5 @@
 ---
-title: Bibliotecas
+title: Librerías
 teaching: 10
 exercises: 10
 ---
@@ -7,11 +7,11 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explicar qué son las bibliotecas de software y por qué los programadores las crean y
+- Explicar qué son las librerías de software y por qué los programadores las crean y
   utilizan.
-- Escribir programas que importen y utilicen módulos de la biblioteca estándar de
+- Escribir programas que importen y utilicen módulos de la librería estándar de
   Python.
-- Buscar y leer documentación de la biblioteca estándar de forma interactiva (en el
+- Buscar y leer documentación de la librería estándar de forma interactiva (en el
   intérprete) y en línea.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -23,37 +23,37 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## La mayor parte de la potencia de un lenguaje de programación está en sus bibliotecas.
+## La mayor parte de la potencia de un lenguaje de programación está en sus librerías.
 
-- Una *biblioteca* es una colección de ficheros (llamados *módulos*) que contienen
+- Una *librería* es una colección de ficheros (llamados *módulos*) que contienen
   funciones para ser usadas por otros programas.
   - También puede contener valores de datos (por ejemplo, constantes numéricas) y otras
     cosas.
-  - Se supone que los contenidos de la biblioteca están relacionados, pero no hay forma
+  - Se supone que los contenidos de la librería están relacionados, pero no hay forma
     de hacer cumplir esto.
-- La [biblioteca estándar][stdlib] de Python es un extenso conjunto de módulos que
+- La [librería estándar][stdlib] de Python es un extenso conjunto de módulos que
   vienen con el propio Python.
-- Muchas bibliotecas adicionales están disponibles en [PyPI][pypi] (the Python Package
+- Muchas librerías adicionales están disponibles en [PyPI][pypi] (the Python Package
   Index).
-- Veremos más adelante cómo escribir nuevas bibliotecas.
+- Veremos más adelante cómo escribir nuevas librerías.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## Bibliotecas y módulos
+## librerías y módulos
 
-Una biblioteca es una colección de módulos, pero a menudo los términos se usan
-indistintamente, especialmente porque muchas bibliotecas sólo consisten en un único
+Una librería es una colección de módulos, pero a menudo los términos se usan
+indistintamente, especialmente porque muchas librerías sólo consisten en un único
 módulo, así que no te preocupes si los mezclas.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Un programa debe importar un módulo de biblioteca antes de usarlo.
+## Un programa debe importar un módulo de librería antes de usarlo.
 
-- Utilice `import` para cargar un módulo de biblioteca en la memoria de un programa.
+- Utilice `import` para cargar un módulo de librería en la memoria de un programa.
 - Luego refiérase a cosas del módulo como `module_name.thing_name`.
   - Python usa `.` para significar "parte de".
-- Usando `math`, uno de los módulos de la biblioteca estándar:
+- Usando `math`, uno de los módulos de la librería estándar:
 
 ```python
 import math
@@ -71,7 +71,7 @@ cos(pi) is -1.0
   - `math.cos(pi)` no funciona: la referencia a `pi` no "hereda" de algún modo la
     referencia de la función a `math`.
 
-## Utilice `help` para conocer el contenido de un módulo de biblioteca.
+## Utilice `help` para conocer el contenido de un módulo de librería.
 
 - Funciona igual que la ayuda para una función.
 
@@ -104,11 +104,11 @@ FUNCTIONS
 ⋮ ⋮ ⋮
 ```
 
-## Importar elementos específicos de un módulo de biblioteca para acortar programas.
+## Importar elementos específicos de un módulo de librería para acortar programas.
 
 - Utilice `from ... import ...` para cargar sólo elementos específicos de un módulo de
-  biblioteca.
-- Luego refiérase a ellos directamente sin el nombre de la biblioteca como prefijo.
+  librería.
+- Luego refiérase a ellos directamente sin el nombre de la librería como prefijo.
 
 ```python
 from math import cos, pi
@@ -120,10 +120,10 @@ print('cos(pi) is', cos(pi))
 cos(pi) is -1.0
 ```
 
-## Crear un alias para un módulo de biblioteca al importarlo para acortar programas.
+## Crear un alias para un módulo de librería al importarlo para acortar programas.
 
-- Utilice `import ... as ...` para dar un *alias* corto a una biblioteca al importarla.
-- A continuación, haga referencia a los elementos de la biblioteca utilizando ese nombre
+- Utilice `import ... as ...` para dar un *alias* corto a una librería al importarla.
+- A continuación, haga referencia a los elementos de la librería utilizando ese nombre
   abreviado.
 
 ```python
@@ -136,7 +136,7 @@ print('cos(pi) is', m.cos(m.pi))
 cos(pi) is -1.0
 ```
 
-- Comúnmente utilizado para bibliotecas de uso frecuente o con nombres largos.
+- Comúnmente utilizado para librerías de uso frecuente o con nombres largos.
   - Por ejemplo, la librería de ploteo `matplotlib` a menudo tiene el alias `mpl`.
 - Pero puede hacer que los programas sean más difíciles de entender, ya que los lectores
   deben aprender los alias de su programa.
@@ -147,7 +147,7 @@ cos(pi) is -1.0
 
 1. ¿Qué función del módulo `math` puedes usar para calcular una raíz cuadrada *sin* usar
    `sqrt`?
-2. Dado que la biblioteca contiene esta función, ¿por qué existe `sqrt`?
+2. Dado que la librería contiene esta función, ¿por qué existe `sqrt`?
 
 ::::::::::::::: solution
 
@@ -161,7 +161,7 @@ cos(pi) is -1.0
    programación, por lo que tiene sentido proporcionar una función especial para este
    caso común específico.
 
-Además, el diseño de la biblioteca `math` de Python tiene su origen en el estándar C,
+Además, el diseño de la librería `math` de Python tiene su origen en el estándar C,
 que incluye tanto `sqrt(x)` como `pow(x,y)`, por lo que un poco de la historia de la
 programación se muestra en los nombres de las funciones de Python.
 
@@ -181,7 +181,7 @@ Desea seleccionar un carácter aleatorio de una cadena:
 bases = 'ACTTGCTTGAC'
 ```
 
-1. ¿Qué módulo de [biblioteca estándar][stdlib] podría ayudarle?
+1. ¿Qué módulo de [librería estándar][stdlib] podría ayudarle?
 2. ¿Qué función seleccionarías de ese módulo? ¿Existen alternativas?
 3. Intenta escribir un programa que utilice la función.
 
@@ -344,9 +344,9 @@ cuando hay convenciones claras de abreviación.
 
 ::::::::::::::::::::::::::::::::::::::: challenge
 
-## ¡Hay Muchas Formas De Importar Bibliotecas!
+## ¡Hay Muchas Formas De Importar Librerías!
 
-Empareja las siguientes sentencias de impresión con las llamadas a biblioteca
+Empareja las siguientes sentencias de impresión con las llamadas a librería
 apropiadas.
 
 Comandos de impresión:
@@ -355,7 +355,7 @@ Comandos de impresión:
 2. `print("sin(pi/2) =", m.sin(m.pi/2))`
 3. `print("sin(pi/2) =", math.sin(math.pi/2))`
 
-Llamadas a bibliotecas:
+Llamadas a librerías:
 
 1. `from math import sin, pi`
 2. `import math`
@@ -366,24 +366,24 @@ Llamadas a bibliotecas:
 
 ## Solución
 
-1. Llamadas a las bibliotecas 1 y 4. Para referirse directamente a `sin` y `pi` sin el
-   nombre de la biblioteca como prefijo, es necesario utilizar la sentencia `from ...
-   import ...`. Mientras que la llamada a biblioteca 1 importa específicamente las dos
-   funciones `sin` y `pi`, la llamada a biblioteca 4 importa todas las funciones del
+1. Llamadas a las librerías 1 y 4. Para referirse directamente a `sin` y `pi` sin el
+   nombre de la librería como prefijo, es necesario utilizar la sentencia `from ...
+   import ...`. Mientras que la llamada a librería 1 importa específicamente las dos
+   funciones `sin` y `pi`, la llamada a librería 4 importa todas las funciones del
    módulo `math`.
-2. Llamada a la biblioteca 3. Aquí se hace referencia a `sin` y `pi` con un nombre de
-   biblioteca abreviado `m` en lugar de `math`. La llamada a biblioteca 3 hace
+2. Llamada a la librería 3. Aquí se hace referencia a `sin` y `pi` con un nombre de
+   librería abreviado `m` en lugar de `math`. La llamada a librería 3 hace
    exactamente eso utilizando la sintaxis `import ... as ...` - crea un alias para
    `math` con el nombre abreviado `m`.
-3. Llamada a la biblioteca 2. Aquí se hace referencia a `sin` y `pi` con el nombre de
-   biblioteca normal `math`, por lo que basta con la llamada normal `import ...`.
+3. Llamada a la librería 2. Aquí se hace referencia a `sin` y `pi` con el nombre de
+   librería normal `math`, por lo que basta con la llamada normal `import ...`.
 
-**Nota:** aunque la llamada a biblioteca 4 funciona, importar todos los nombres de un
+**Nota:** aunque la llamada a librería 4 funciona, importar todos los nombres de un
 módulo usando una importación comodín [no es recomendable][pep8-imports] ya que hace que
 no quede claro qué nombres del módulo se usan en el código. En general, es mejor hacer
 las importaciones tan específicas como sea posible y sólo importar lo que el código
-utiliza. En la llamada a biblioteca 1, la sentencia `import` nos dice explícitamente que
-la función `sin` es importada del módulo `math`, pero la llamada a biblioteca 4 no
+utiliza. En la llamada a librería 1, la sentencia `import` nos dice explícitamente que
+la función `sin` es importada del módulo `math`, pero la llamada a librería 4 no
 transmite esta información.
 
 
@@ -420,7 +420,7 @@ Lo más probable es que encuentres esta versión más fácil de leer ya que es m
 La principal razón para no utilizar esta forma de importación es evitar conflictos de
 nombres. Por ejemplo, no importaría `degrees` de esta forma si también quisiera usar el
 nombre `degrees` para una variable o función propia. O si también importaras una función
-llamada `degrees` de otra biblioteca.
+llamada `degrees` de otra librería.
 
 
 
@@ -472,11 +472,11 @@ ValueError: math domain error
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- La mayor parte de la potencia de un lenguaje de programación está en sus bibliotecas.
-- Un programa debe importar un módulo de biblioteca para poder utilizarlo.
-- Utilice `help` para conocer el contenido de un módulo de biblioteca.
-- Importa elementos específicos de una biblioteca para acortar programas.
-- Crea un alias para una biblioteca al importarla para acortar programas.
+- La mayor parte de la potencia de un lenguaje de programación está en sus librerías.
+- Un programa debe importar un módulo de librería para poder utilizarlo.
+- Utilice `help` para conocer el contenido de un módulo de librería.
+- Importa elementos específicos de una librería para acortar programas.
+- Crea un alias para una librería al importarla para acortar programas.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
