@@ -241,7 +241,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06-libraries.html">6. Bibliotecas</a>
+        <a href="06-libraries.html">6. Librerías</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -450,7 +450,7 @@ parámetros definidos.</a></li>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Funciones de escritura</h1>
-        <p>Última actualización: 2025-02-28 |
+        <p>Última actualización: 2025-07-01 |
 
         <a href="https://github.com/swcarpentry/python-novice-gapminder/edit/main/episodes/16-writing-functions.md" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -974,13 +974,13 @@ de gallina (en gramos) al ordenador y éste imprimirá una etiqueta.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a>    <span class="co"># simulating the mass of a chicken egg</span></span>
-<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>    <span class="co"># the (random) mass will be 70 +/- 20 grams</span></span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a>    <span class="co"># simulando la masa de un huevo de gallina</span></span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>    <span class="co"># la masa (aleatoria) será de  70 +/- 20 gramos</span></span>
 <span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a>    mass <span class="op">=</span> <span class="dv">70</span> <span class="op">+</span> <span class="fl">20.0</span> <span class="op">*</span> (<span class="fl">2.0</span> <span class="op">*</span> random.random() <span class="op">-</span> <span class="fl">1.0</span>)</span>
 <span id="cb32-7"><a href="#cb32-7" tabindex="-1"></a></span>
 <span id="cb32-8"><a href="#cb32-8" tabindex="-1"></a>    <span class="bu">print</span>(mass)</span>
 <span id="cb32-9"><a href="#cb32-9" tabindex="-1"></a></span>
-<span id="cb32-10"><a href="#cb32-10" tabindex="-1"></a>    <span class="co"># egg sizing machinery prints a label</span></span>
+<span id="cb32-10"><a href="#cb32-10" tabindex="-1"></a>    <span class="co"># la maquinaria de los huevos de gallina imprime una etiqueta</span></span>
 <span id="cb32-11"><a href="#cb32-11" tabindex="-1"></a>    <span class="cf">if</span> mass <span class="op">&gt;=</span> <span class="dv">85</span>:</span>
 <span id="cb32-12"><a href="#cb32-12" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"jumbo"</span>)</span>
 <span id="cb32-13"><a href="#cb32-13" tabindex="-1"></a>    <span class="cf">elif</span> mass <span class="op">&gt;=</span> <span class="dv">70</span>:</span>
@@ -997,12 +997,12 @@ la función tendríamos esto:</p>
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="co"># revised version</span></span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="co"># versíón revisada</span></span>
 <span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a>    <span class="co"># simulating the mass of a chicken egg</span></span>
-<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a>    <span class="co"># the (random) mass will be 70 +/- 20 grams</span></span>
+<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a>    <span class="co"># simulando la masa de un huevo de gallina</span></span>
+<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a>    <span class="co"># la masa (aleatoria) será de  70 +/- 20 gramos</span></span>
 <span id="cb33-7"><a href="#cb33-7" tabindex="-1"></a>    mass <span class="op">=</span> <span class="dv">70</span> <span class="op">+</span> <span class="fl">20.0</span> <span class="op">*</span> (<span class="fl">2.0</span> <span class="op">*</span> random.random() <span class="op">-</span> <span class="fl">1.0</span>)</span>
 <span id="cb33-8"><a href="#cb33-8" tabindex="-1"></a></span>
 <span id="cb33-9"><a href="#cb33-9" tabindex="-1"></a>    <span class="bu">print</span>(mass, get_egg_label(mass))</span></code></pre>
@@ -1033,7 +1033,7 @@ estas condiciones de error. Un ejemplo de salida podría ser
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="kw">def</span> get_egg_label(mass):</span>
-<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>    <span class="co"># egg sizing machinery prints a label</span></span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>   <span class="co"># la maquinaria de los huevos de gallina imprime una etiqueta</span></span>
 <span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a>    egg_label <span class="op">=</span> <span class="st">"Unlabelled"</span></span>
 <span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a>    <span class="cf">if</span> mass <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
 <span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a>        egg_label <span class="op">=</span> <span class="st">"warning: egg might be dirty"</span></span>
@@ -1367,7 +1367,7 @@ parámetros definidos.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Plantilla compartida bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> por <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/0.16.11" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a> y <a href="https://github.com/carpentries/varnish/tree/1.0.5" class="external-link">varnish (1.0.5)</a></p>
+        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/0.16.12" class="external-link">sandpaper (0.16.12)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a> y <a href="https://github.com/carpentries/varnish/tree/1.0.6" class="external-link">varnish (1.0.6)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1378,10 +1378,10 @@ parámetros definidos.</li>
   <script type="application/ld+json">
     {
   "@context": "https://schema.org",
-  "@type": "TrainingMaterial",
+  "@type": "LearningResource",
   "@id": "https://swcarpentry.github.io/python-novice-gapminder/instructor/16-writing-functions.html",
   "inLanguage": "es",
-  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
+  "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "Funciones de escritura",
@@ -1389,8 +1389,8 @@ parámetros definidos.</li>
   "url": "https://swcarpentry.github.io/python-novice-gapminder/instructor/16-writing-functions.html",
   "identifier": "https://swcarpentry.github.io/python-novice-gapminder/instructor/16-writing-functions.html",
   "dateCreated": "2016-01-07",
-  "dateModified": "2025-02-28",
-  "datePublished": "2025-03-18"
+  "dateModified": "2025-07-01",
+  "datePublished": "2025-07-01"
 }
 
   </script><script>
