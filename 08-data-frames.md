@@ -594,48 +594,48 @@ Sugiere distintas formas de realizar las siguientes operaciones en un DataFrame:
 1\. Accede a una sola columna:
 
 ```python
-# by name
+# por nombre
 data["col_name"]   # as a Series
 data[["col_name"]] # as a DataFrame
 
-# by name using .loc
+# por nombre utilizando .loc
 data.T.loc["col_name"]  # as a Series
 data.T.loc[["col_name"]].T  # as a DataFrame
 
-# Dot notation (Series)
+# notación punto (Series)
 data.col_name
 
-# by index (iloc)
+# por índice (iloc)
 data.iloc[:, col_index]   # as a Series
 data.iloc[:, [col_index]] # as a DataFrame
 
-# using a mask
+# utilizando una máscara
 data.T[data.T.index == "col_name"].T
 ```
 
 2\. Accede a una única fila:
 
 ```python
-# by name using .loc
+# por nombre utilizando .loc
 data.loc["row_name"] # as a Series
 data.loc[["row_name"]] # as a DataFrame
 
-# by name
+# por nombre
 data.T["row_name"] # as a Series
 data.T[["row_name"]].T # as a DataFrame
 
-# by index
+# por índice
 data.iloc[row_index]   # as a Series
 data.iloc[[row_index]]   # as a DataFrame
 
-# using mask
+# utilizando máscara  
 data[data.index == "row_name"]
 ```
 
 3\. Accede a un elemento individual del DataFrame:
 
 ```python
-# by column/row names
+# por nombre de columna/fila
 data["column_name"]["row_name"]         # as a Series
 
 data[["col_name"]].loc["row_name"]  # as a Series
@@ -650,78 +650,78 @@ data.loc[["row_name"], "col_name"]  # as a Series. Preserves index. Column name 
 data.loc["row_name", ["col_name"]]  # as a Series. Index is moved to `.name.` Sets index to column name.
 data.loc[["row_name"], ["col_name"]]  # as a DataFrame (preserves original index and column name)
 
-# by column/row names: Dot notation
+# nombres de columna/fila: notacíon de punto
 data.col_name.row_name
 
-# by column/row indices
+# índices de columna/fila
 data.iloc[row_index, col_index] # as a value
 data.iloc[[row_index], col_index] # as a Series. Preserves index. Column name is moved to `.name`
 data.iloc[row_index, [col_index]] # as a Series. Index is moved to `.name.` Sets index to column name.
 data.iloc[[row_index], [col_index]] # as a DataFrame (preserves original index and column name)
 
-# column name + row index
+# nombre columna + índice fila
 data["col_name"][row_index]
 data.col_name[row_index]
 data["col_name"].iloc[row_index]
 
-# column index + row name
+# índice columna + nombre fila
 data.iloc[:, [col_index]].loc["row_name"]  # as a Series
 data.iloc[:, [col_index]].loc[["row_name"]]  # as a DataFrame
 
-# using masks
+# utilizando máscaras
 data[data.index == "row_name"].T[data.T.index == "col_name"].T
 ```
 
 4\. Accede a varias columnas:
 
 ```python
-# by name
+# por nombre
 data[["col1", "col2", "col3"]]
 data.loc[:, ["col1", "col2", "col3"]]
 
-# by index
+# por índice
 data.iloc[:, [col1_index, col2_index, col3_index]]
 ```
 
 5\. Accede a varias filas
 
 ```python
-# by name
+# por nombre
 data.loc[["row1", "row2", "row3"]]
 
-# by index
+# por índice
 data.iloc[[row1_index, row2_index, row3_index]]
 ```
 
 6\. Accede a un subconjunto de filas y columnas específicas
 
 ```python
-# by names
+# por nombres
 data.loc[["row1", "row2", "row3"], ["col1", "col2", "col3"]]
 
-# by indices
+# por indices
 data.iloc[[row1_index, row2_index, row3_index], [col1_index, col2_index, col3_index]]
 
-# column names + row indices
+# nombre columna + indice fila
 data[["col1", "col2", "col3"]].iloc[[row1_index, row2_index, row3_index]]
 
-# column indices + row names
+# índice columna + nombre fila
 data.iloc[:, [col1_index, col2_index, col3_index]].loc[["row1", "row2", "row3"]]
 ```
 
 7\. Accede a un subconjunto de rangos de filas y columnas
 
 ```python
-# by name
+# por nombre
 data.loc["row1":"row2", "col1":"col2"]
 
-# by index
+# por índice
 data.iloc[row1_index:row2_index, col1_index:col2_index]
 
-# column names + row indices
+# nombre columna + indice fila
 data.loc[:, "col1_name":"col2_name"].iloc[row1_index:row2_index]
 
-# column indices + row names
+# índice columna + nombre fila
 data.iloc[:, col1_index:col2_index].loc["row1":"row2"]
 ```
 

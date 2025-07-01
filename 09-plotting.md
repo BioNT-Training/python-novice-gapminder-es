@@ -83,15 +83,15 @@ import pandas as pd
 
 data = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
 
-# Extract year from last 4 characters of each column name
-# The current column names are structured as 'gdpPercap_(year)', 
-# so we want to keep the (year) part only for clarity when plotting GDP vs. years
-# To do this we use replace(), which removes from the string the characters stated in the argument
-# This method works on strings, so we use replace() from Pandas Series.str vectorized string functions
+# Extraer el año de los últimos 4 caracteres de cada nombre de columna  
+# Los nombres actuales de las columnas tienen la estructura 'gdpPercap_(año)',  
+# por lo que queremos conservar solo la parte del (año) para mayor claridad al graficar PIB vs. años  
+# Para ello usamos replace(), que elimina de la cadena los caracteres indicados en el argumento  
+# Este método funciona con cadenas, así que usamos replace() desde las funciones vectorizadas de cadenas de Pandas: Series.str
 
 years = data.columns.str.replace('gdpPercap_', '')
 
-# Convert year values to integers, saving results back to dataframe
+# Convierte los valores de los años a integers, guardando los resultados de vuelta
 
 data.columns = years.astype(int)
 
