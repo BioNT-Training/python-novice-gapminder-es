@@ -96,7 +96,9 @@ profiles:
 
 
 url: 'https://swcarpentry.github.io/python-novice-gapminder'
-analytics: carpentries
+analytics: |
+  <script defer data-domain="biont-training.github.io" src="https://plausible.galaxyproject.eu/js/script.js"></script>
+
 lang: es
 
 languages:
